@@ -28,7 +28,7 @@
 				<h1><a href="#">Ion</a></h1>
 				<nav id="nav">
 					<ul>
-						<li><a href="index.html">Home</a></li>
+						<li><a href="page2.html">Home</a></li>
 						<li><a href="left-sidebar.html">Left Sidebar</a></li>
 						<li><a href="right-sidebar.html">Right Sidebar</a></li>
 						<li><a href="no-sidebar.html">No Sidebar</a></li>
@@ -40,111 +40,272 @@
 		<!-- Main -->
 			<section id="main" class="wrapper style1">
 				<header class="major">
-					<h2>Right Sidebar</h2>
-					<p>Tempus adipiscing commodo ut aliquam blandit</p>
+					<h2>Course Page</h2>
+					<p>Contains Course Details</p>
 				</header>
 				<div class="container">
 					<div class="row">
-						<div class="8u">
-							<section>
-								<h2>Mollis ut adipiscing</h2>
-								<a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
-								<p>Vis accumsan feugiat adipiscing nisl amet adipiscing accumsan blandit accumsan sapien blandit ac amet faucibus aliquet placerat commodo. Interdum ante aliquet commodo accumsan vis phasellus adipiscing. Ornare a in lacinia. Vestibulum accumsan ac metus massa tempor. Accumsan in lacinia ornare massa amet. Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan commodo odio cubilia ac eu interdum placerat placerat arcu commodo lobortis adipiscing semper ornare pellentesque.</p>
-								<p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet blandit adipiscing arcu ante.</p>
-							</section>
-						</div>
 						<div class="4u">
+
+							<SCRIPT Language="JavaScript">
+
+							function getcoloury(num)
+								{ num   = Math.round(num);
+									if (num==1){
+										return "#C00000"
+									}
+									if (num==2){
+										return "#FFA500"
+									}
+									if (num==3){
+										return "#FFFF00"
+									}
+									if (num==4){
+										return "#009900"
+									}
+									if (num==5){
+										return "#003300"
+									}
+								}
+
+								
+								function colourotrating()
+								{
+									var x = document.getElementsByClassName("boxotr");
+									for (var i = 0; i < x.length; ++i) {
+										var ele = x[i];  
+										idr = ele.textContent;
+										ele.style.backgroundColor=getcoloury(idr);
+									}
+									
+								}
+
+								function colourorating()
+								{
+									var x = document.getElementsByClassName("boxor");
+									for (var i = 0; i < x.length; ++i) {
+										var ele = x[i];  
+										idr = ele.textContent;
+										ele.style.backgroundColor=getcoloury(idr);
+									}
+									
+								}
+								</script>
+							
+							<section class="boxcp">
+								<h3>Course Ratings</h3>
+
+									<section class="special box">
+									<section class = "boxotr" id = "arrat">1</section>
+									<h4>Overall Rating</h4>
+									</section>
+
+									<section class="special box">
+									<section class = "boxotr" id = "arrat">2</section>
+									<h4>Grading</h4>
+									</section>
+
+									<section class="special box">
+									<section class = "boxotr" id = "arrat">3</section>
+									<h4>Attendance</h4>
+									</section>
+
+									<section class="special box">
+									<section class = "boxotr" id = "arrat">4</section>
+									<h4>Interest</h4>
+									</section>
+
+									<section class="special box">
+									<section class = "boxotr" id = "arrat">5</section>
+									<h4>Workload</h4>
+									</section>
+
+									<SCRIPT Language="JavaScript">
+									
+									</SCRIPT>
+
+									
+								</ul>
+							</section>
+						</div>
+
+						<div class="7u">
 							<section>
-								<h3>Magna massa blandit</h3>
-								<p>Feugiat amet accumsan ante aliquet feugiat accumsan. Ante blandit accumsan eu amet tortor non lorem felis semper. Interdum adipiscing orci feugiat penatibus adipiscing col cubilia lorem ipsum dolor sit amet feugiat consequat.</p>
-								<ul class="actions">
-									<li><a href="#" class="button alt">Learn More</a></li>
-								</ul>
-							</section>
-							<hr />
-							<section>
-								<h3>Ante sed commodo</h3>
-								<ul class="alt">
-									<li><a href="#">Erat blandit risus vis adipiscing</a></li>
-									<li><a href="#">Tempus ultricies faucibus amet</a></li>
-									<li><a href="#">Arcu commodo non adipiscing quis</a></li>
-									<li><a href="#">Accumsan vis lacinia semper</a></li>
-									<li><a href="#">Erat blandit risus vis adipiscing</a></li>
-									<li><a href="#">Tempus ultricies faucibus amet</a></li>
-									<li><a href="#">Arcu commodo non adipiscing quis</a></li>
-									<li><a href="#">Accumsan vis lacinia semper</a></li>
-								</ul>
+
+								<h2>CSL333</h2>
+								<h3>Artificial Intelligence</h3>
+
+								<table>
+								  <tr>
+									<th>Instructor</th>
+									<th>Slot</th> 
+									<th>Credits</th>
+									<th>L &nbsp; T &nbsp; P</th>
+								  </tr>
+								  <tr>
+									<td>Mausam</td>
+									<td>M</td> 
+									<td>4.0</td>
+									<td>3 &nbsp; 0 &nbsp; 2</td>
+								  </tr>
+								</table>
+
+								<h4>Pre-requisites</h4>
+								<p> CSL201 </p>
+								<br>
+
+								<h4>Course Content</h4>
+								<p>
+									Problem solving, search techniques, control strategies, game playing
+									(minimax), reasoning, knowledge representation through predicate
+									logic, rule-based systems, semantic nets, frames, conceptual
+									dependency formalism. Planning. Handling uncertainty: Bayesian
+									Networks, Dempster-Shafer theory, certainty factors. Fuzzy logic,
+									Learning through Neural nets- Back propagation, radial basis functions,
+									Neural computational models - Hopfield Nets, Boltzman machines.
+									PROLOG programming.
+								</p>
+
+								<h4>Reviews</h4>
+								<section class="special box">
+									<h5>Add Your Review</h5>
+									<section class = "boxre">
+										<script Language="JavaScript">
+											function getcolour(num)
+											{
+												if (num==1){
+													return "#C00000"
+												}
+												if (num==2){
+													return "#FFA500"
+												}
+												if (num==3){
+													return "#FFFF00"
+												}
+												if (num==4){
+													return "#009900"
+												}
+												if (num==5){
+													return "#003300"
+												}
+											}
+
+											function colourGreen(ele)
+											{
+												idr = ele.id;
+												ele.style.backgroundColor=getcolour(idr);
+
+											}
+
+											function changetextcolor()
+											{
+												idr = document.getElementById("addreview");
+												idr.style.background="#ffffff";
+												idr.style.height="200px";
+
+											}
+										</script>
+										<SCRIPT Language="JavaScript">
+											<!-- 
+											
+											document.write('<section class="boxrto">');
+												document.write('<h4>Overall Rating</h4>');
+
+											for (i = 1; i <= 5; i++) {
+											document.write('<button class="buttre" type="button" id = "'+i+'"" onclick = "colourGreen(this)">'+i+'</button>');
+											}
+											document.write('</section>');
+
+
+											document.write('<div class="row">');
+											for (j = 0; j <= 3; j++) {
+												document.write('<section class="boxrt">');
+												document.write('<h4>Grdaing</h4>');
+
+											for (i = 1; i <= 5; i++) {
+											document.write('<button class="buttre" type="button" id = "'+i+'"" onclick = "colourGreen(this)">'+i+'</button>');
+											}
+											document.write('</section>');
+											}
+											document.write('</div>');
+											
+										</SCRIPT>
+										
+										
+										<textarea name="fname" id="addreview"></textarea>
+										<SCRIPT Language="JavaScript">
+										changetextcolor();
+										</SCRIPT>
+										<br>
+										<input type="submit" value="Submit">
+									</section>
+								
+									<SCRIPT Language="JavaScript">
+									<!-- 
+									
+									for (i = 0; i <= 7; i++) {
+										
+									document.write('<hr/>');
+
+									document.write('<div class="12u">');
+										document.write('<section class="boxnb">');
+											document.write('<h2>Feanor</h2>');
+											document.write('<p>Why O people of the Noldor, why should we longer serve the jealous Valar, who cannot keep us, not even their own ralm secure from their enemy. And though now he be their foe, are not they and he of one kin </p>')
+										document.write('</section>');
+									document.write('</div>');
+
+									document.write('<div class="11u">');										
+										document.write('<section class="boxnb">');
+											document.write('<section class = "boxotr" id = "arrat">1</section>');
+											document.write('<section class = "boxotr" id = "grrat">2</section>');
+											document.write('<section class = "boxotr" id = "inrat">3</section>');
+											document.write('<section class = "boxotr" id = "worat">4</section>');
+											document.write('<section class = "boxor" id = "ovrat">5</section><br><br>');
+										document.write('</section>');
+									document.write('</div>');
+
+									// document.write('<div class="2u">');
+									// 	document.write('<section class="boxnb">');
+									// 		document.write('<section class = "boxotr" id = "ovrat">5</section><br>');
+									// 	document.write('</section>');
+									// document.write('</div>');
+
+
+									
+										
+										document.write('<button class="butt" type="button">Upvote</button>');
+										document.write('<input value="3" class="buttup" readonly>');
+										document.write('<button class="butt" type="button">Downvote</button>');
+										document.write('<input value="3" class="buttup" readonly>');
+										document.write('<button class="butt" type="button">Report</button>');
+										document.write('<input value="3" class="buttup" readonly>');
+										
+										colourotrating();
+										colourorating();
+									
+
+									//-->
+									}
+									</SCRIPT>
+								</section>
+
 							</section>
 						</div>
+						
 					</div>
-					<hr class="major" />
-					<div class="row">
-						<div class="6u">
-							<section class="special">
-								<a href="#" class="image fit"><img src="images/pic01.jpg" alt="" /></a>
-								<h3>Mollis adipiscing nisl</h3>
-								<p>Eget mi ac magna cep lobortis faucibus accumsan enim lacinia adipiscing metus urna adipiscing cep commodo id. Ac quis arcu amet. Arcu nascetur lorem adipiscing non faucibus odio nullam arcu lobortis. Aliquet ante feugiat. Turpis aliquet ac posuere volutpat lorem arcu aliquam lorem.</p>
-								<ul class="actions">
-									<li><a href="#" class="button alt">Learn More</a></li>
-								</ul>
-							</section>
-						</div>
-						<div class="6u">
-							<section class="special">
-								<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
-								<h3>Neque ornare adipiscing</h3>
-								<p>Eget mi ac magna cep lobortis faucibus accumsan enim lacinia adipiscing metus urna adipiscing cep commodo id. Ac quis arcu amet. Arcu nascetur lorem adipiscing non faucibus odio nullam arcu lobortis. Aliquet ante feugiat. Turpis aliquet ac posuere volutpat lorem arcu aliquam lorem.</p>
-								<ul class="actions">
-									<li><a href="#" class="button alt">Learn More</a></li>
-								</ul>
-							</section>
-						</div>
-					</div>
+					
 				</div>
 			</section>
 
 		<!-- Footer -->
 			<footer id="footer">
 				<div class="container">
-					<div class="row double">
-						<div class="6u">
-							<div class="row collapse-at-2">
-								<div class="6u">
-									<h3>Accumsan</h3>
-									<ul class="alt">
-										<li><a href="#">Nascetur nunc varius</a></li>
-										<li><a href="#">Vis faucibus sed tempor</a></li>
-										<li><a href="#">Massa amet lobortis vel</a></li>
-										<li><a href="#">Nascetur nunc varius</a></li>
-									</ul>
-								</div>
-								<div class="6u">
-									<h3>Faucibus</h3>
-									<ul class="alt">
-										<li><a href="#">Nascetur nunc varius</a></li>
-										<li><a href="#">Vis faucibus sed tempor</a></li>
-										<li><a href="#">Massa amet lobortis vel</a></li>
-										<li><a href="#">Nascetur nunc varius</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="6u">
-							<h2>Aliquam Interdum</h2>
-							<p>Blandit nunc tempor lobortis nunc non. Mi accumsan. Justo aliquet massa adipiscing cubilia eu accumsan id. Arcu accumsan faucibus vis ultricies adipiscing ornare ut. Mi accumsan justo aliquet.</p>
-							<ul class="icons">
-								<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-								<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
-								<li><a href="#" class="icon fa-pinterest"><span class="label">Pinterest</span></a></li>
-							</ul>
-						</div>
-					</div>
+						
 					<ul class="copyright">
-						<li>&copy; Untitled. All rights reserved.</li>
-						<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
-						<li>Images: <a href="http://unsplash.com">Unsplash</a></li>
+						<li>&copy; CRS. All rights reserved.</li>
+						<li><a href="http://templated.co">About</a></li>
+						<li><a href="http://templated.co">Blog</a></li>
+						<li><a href="http://templated.co">Contact Us</a></li>
 					</ul>
 				</div>
 			</footer>

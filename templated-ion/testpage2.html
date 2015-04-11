@@ -94,20 +94,8 @@
 								}
 									   
 						<!-- 
-
 						
 						var t = window.opener.ui;
-
-						var courseselected;
-
-						function toCoursePage(id1){
-							var strd = id1.id;
-							var res = strd.replace("try", "");
-							var anum = parseInt(res);
-							courseselected = t[anum];
-							window.open('testpage3.html','');
-					        return false;
-						}
 						
 						for (i = 0; i <= t.length; i++) {
 						s0 = (t[i]['name']);
@@ -121,19 +109,11 @@
 						s8 = (t[i]['P']);
 						s9 = (t[i]['credits']);
 						s10 = (t[i]['instructor']);
-
-						// s11 = Math.round((t[i]['ov']*10)/10);
-						// s12 = Math.round((t[i]['gr']*10)/10);
-						// s13 = Math.round((t[i]['ar']*10)/10);
-						// s14 = Math.round((t[i]['interest']*10)/10);
-						// s15 = Math.round((t[i]['work']*10)/10);
-
-
-						s11 = Math.round(t[i]['ov']);
-						s12 = Math.round(t[i]['gr']);
-						s13 = Math.round(t[i]['ar']);
-						s14 = Math.round(t[i]['interest']);
-						s15 = Math.round(t[i]['work']);
+						s11 = Math.ceil(t[i]['ov']);
+						s12 = Math.ceil(t[i]['gr']);
+						s13 = Math.ceil(t[i]['ar']);
+						s14 = Math.ceil(t[i]['interest']);
+						s15 = Math.ceil(t[i]['work']);
 						
 						document.write('<div class="12u">');
 						document.write('<section class="special box">');
@@ -141,21 +121,21 @@
 						document.write('<div class="4u">');
 						//document.write('<i class="icon fa-area-chart major"></i>');
 						document.write('<section class="boxnb">');
-						document.write('<section class = "boxor" title="Overall Rating" id = "ovrat">'+s11+'</section><br>');
+						document.write('<section class = "boxor" id = "ovrat">'+s11+'</section><br>');
 						document.write('</section>');
 						colourrating();
 						document.write('<section class="boxnb">');
-						document.write('<section class = "boxotr" title="Attendance Rating" id = "arrat">'+s13+'</section>');
-						document.write('<section class = "boxotr" title="Grading Rating" id = "grrat">'+s12+'</section>');
-						document.write('<section class = "boxotr" title="Interest Rating" id = "inrat">'+s14+'</section>');
-						document.write('<section class = "boxotr" title="Workload Rating" id = "worat">'+s15+'</section>');
+						document.write('<section class = "boxotr" id = "arrat">'+s13+'</section>');
+						document.write('<section class = "boxotr" id = "grrat">'+s12+'</section>');
+						document.write('<section class = "boxotr" id = "inrat">'+s14+'</section>');
+						document.write('<section class = "boxotr" id = "worat">'+s15+'</section>');
 						document.write('</section>');
 						colourotrating();
 						document.write('</div>');
 						document.write('<div class="8u">');
 						document.write('<section class="boxnb">');
 
-						document.write('<h2><a id = "try'+i+'" href="javascript:void(0);" onclick="toCoursePage(this);">'+s1+'</a></h2>');
+						document.write('<h2>'+s1+'</h2>');
 						
 						document.write('<h3>'+s0+'</h3>');
 

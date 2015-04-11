@@ -5,38 +5,20 @@ if($link === false){
 	die("ERROR: Could not connect. " . mysqli_connect_error());
 }
  
-$s1= $_POST['search0'];
+$s0= $_POST['search0'];
 $s1= $_POST['search1'];  
 $s2= $_POST['search2'];     
 $s3= $_POST['search3'];
 
 $stack = array("orange");
-$str1 = "";
 
-// if !(empty($s0)) {
-// 	array_push($stack,"s1 is empty");
-// 	$str1 = $str1+ "shortname LIKE '""CSL%'";
-//     //echo 's1 is empty';
-// }
-// if (empty($s1)) {
-// 	array_push($stack,"s1 is empty");
-// 	$str1 = $str1+ "shortname LIKE 'CSL%'";
-//     //echo 's1 is empty';
-// }
-// if (empty($s2)) {
-// 	array_push($stack, "s2 is empty");
-// 	$str1 = $str1+ "shortname LIKE 'CSL%'";
-//     //echo 's2 is empty';
-// }
-// if (empty($s3)) {
-//     array_push($stack, "s3 is empty");
-//     $str1 = $str1+ "shortname LIKE 'CSL%'";
-// 	//echo 's3 is empty';
-// }  
 
 $sql = "select courses.name as name, courses.shortname as shortname, courses.L as L, courses.T as T, courses.P as P, courses.credits as credits, 
 courses.CID as CID, courses.IID as IID, courses.content as content, courses.slot as slot, instructor.IID as insIID, instructor.name as instructor 
-from courses inner join instructor on courses.IID = instructor.IID WHERE shortname LIKE 'CSL%';";
+from courses inner join instructor on courses.IID = instructor.IID WHERE 
+courses.shortname LIKE '%".$s0 ."%".$s1."%' AND courses.name LIKE '%".$s2 ."%' AND instructor.name LIKE '%".$s3 ."%' ";
+
+
 //$sql = "SELECT * FROM courses WHERE shortname LIKE 'CSL%';";
 $result = mysqli_query($link,$sql);
 

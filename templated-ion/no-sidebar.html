@@ -20,6 +20,25 @@
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-xlarge.css" />
 		</noscript>
+
+	<script>
+	function showHint(str) {
+		if (str.length == 0) { 
+			document.getElementById("txtHint").innerHTML = "";
+			return;
+		} else {
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					document.getElementById("myid").innerHTML = xmlhttp.responseText;
+				}
+			}
+			xmlhttp.open("GET", "a1.php?q=" + str, true);
+			xmlhttp.send();
+		}
+	}
+	</script>
+
 	</head>
 	<body id="top">
 

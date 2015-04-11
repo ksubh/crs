@@ -94,20 +94,8 @@
 								}
 									   
 						<!-- 
-
 						
 						var t = window.opener.ui;
-
-						var courseselected;
-
-						function toCoursePage(id1){
-							var strd = id1.id;
-							var res = strd.replace("try", "");
-							var anum = parseInt(res);
-							courseselected = t[anum];
-							window.open('testpage3.html','');
-					        return false;
-						}
 						
 						for (i = 0; i <= t.length; i++) {
 						s0 = (t[i]['name']);
@@ -155,7 +143,7 @@
 						document.write('<div class="8u">');
 						document.write('<section class="boxnb">');
 
-						document.write('<h2><a id = "try'+i+'" href="javascript:void(0);" onclick="toCoursePage(this);">'+s1+'</a></h2>');
+						document.write('<h2>'+s1+'</h2>');
 						
 						document.write('<h3>'+s0+'</h3>');
 

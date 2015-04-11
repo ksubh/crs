@@ -39,6 +39,11 @@ while($r = mysqli_fetch_assoc($result)) {
 	$r['work']=$r1['work'];
 	$r['ov']=$r1['ov'];
 
+	$sql2 = "SELECT COUNT(*) as revnum FROM reviews where CID=".$r['CID'].";";
+	$result2 = mysqli_query($link,$sql2);
+	$r2 = mysqli_fetch_assoc($result2);
+	$r['revnum']=$r2['revnum'];
+
 	//$r['instructor']="magic";
 
     $rows[] = $r;

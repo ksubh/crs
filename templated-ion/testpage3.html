@@ -1,0 +1,375 @@
+<!DOCTYPE HTML>
+<!--
+	Ion by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Right Sidebar - Ion by TEMPLATED</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+		</noscript>
+	</head>
+	<body id="top">
+
+		<!-- Header -->
+			<header id="header" class="skel-layers-fixed">
+				<h1><a href="#">Ion</a></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="page2.html">Home</a></li>
+						<li><a href="left-sidebar.html">Left Sidebar</a></li>
+						<li><a href="right-sidebar.html">Right Sidebar</a></li>
+						<li><a href="no-sidebar.html">No Sidebar</a></li>
+						<li><a href="#" class="button special">Sign Up</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Main -->
+			<section id="main" class="wrapper style1">
+				<header class="major">
+					<h2>Course Page</h2>
+					<p>Contains Course Details</p>
+				</header>
+				<div class="container">
+					<div class="row">
+						<div class="4u">
+
+							<SCRIPT Language="JavaScript">
+
+							function getcoloury(num)
+								{ num   = Math.round(num);
+									if (num==1){
+										return "#C00000"
+									}
+									if (num==2){
+										return "#FFA500"
+									}
+									if (num==3){
+										return "#FFFF00"
+									}
+									if (num==4){
+										return "#009900"
+									}
+									if (num==5){
+										return "#003300"
+									}
+								}
+
+								
+								function colourotrating()
+								{
+									var x = document.getElementsByClassName("boxotr");
+									for (var i = 0; i < x.length; ++i) {
+										var ele = x[i];  
+										idr = ele.textContent;
+										ele.style.backgroundColor=getcoloury(idr);
+									}
+									
+								}
+
+								function colourorating()
+								{
+									var x = document.getElementsByClassName("boxor");
+									for (var i = 0; i < x.length; ++i) {
+										var ele = x[i];  
+										idr = ele.textContent;
+										ele.style.backgroundColor=getcoloury(idr);
+									}
+									
+								}
+								var c1 = window.opener.courseselected;
+
+
+								</script>
+							
+							<section class="boxcp">
+								<h3>Course Ratings</h3>
+
+									<section class="special box">
+									<section class = "boxotr" id = "ovrat01">1</section>
+									<h4>Overall Rating</h4>
+									</section>
+
+									<section class="special box">
+									<section class = "boxotr" id = "grrat01">2</section>
+									<h4>Grading</h4>
+									</section>
+
+									<section class="special box">
+									<section class = "boxotr" id = "arrat01">3</section>
+									<h4>Attendance</h4>
+									</section>
+
+									<section class="special box">
+									<section class = "boxotr" id = "inrat01">4</section>
+									<h4>Interest</h4>
+									</section>
+
+									<section class="special box">
+									<section class = "boxotr" id = "workrat01">5</section>
+									<h4>Workload</h4>
+									</section>
+
+									<SCRIPT Language="JavaScript">
+									document.getElementById('workrat01').innerHTML = Math.round(c1['work']);
+									document.getElementById('ovrat01').innerHTML = Math.round(c1['ov']);
+									document.getElementById('grrat01').innerHTML = Math.round(c1['gr']);
+									document.getElementById('arrat01').innerHTML = Math.round(c1['ar']);
+									document.getElementById('inrat01').innerHTML = Math.round(c1['interest']);
+									
+									</SCRIPT>
+
+									
+								</ul>
+							</section>
+						</div>
+
+						<div class="7u">
+							<section>
+
+								<h2 id="coursenameshort">CSL333</h2>
+								<h3 id="coursename">Artificial Intelligence</h3>
+
+								<table>
+								  <tr>
+									<th>Instructor</th>
+									<th>Slot</th> 
+									<th>Credits</th>
+									<th>L &nbsp; T &nbsp; P</th>
+								  </tr>
+								  <tr>
+									<td id="instructorname">Mausam</td>
+									<td id="slot">M</td> 
+									<td id="credits">4.0</td>
+									<td id="ltp">3 &nbsp; 0 &nbsp; 2</td>
+								  </tr>
+								</table>
+
+								<h4>Pre-requisites</h4>
+								<p> CSL201 </p>
+								<br>
+
+								<h4>Course Content</h4>
+								<p id='content'>
+									Problem solving, search techniques, control strategies, game playing
+									(minimax), reasoning, knowledge representation through predicate
+									logic, rule-based systems, semantic nets, frames, conceptual
+									dependency formalism. Planning. Handling uncertainty: Bayesian
+									Networks, Dempster-Shafer theory, certainty factors. Fuzzy logic,
+									Learning through Neural nets- Back propagation, radial basis functions,
+									Neural computational models - Hopfield Nets, Boltzman machines.
+									PROLOG programming.
+								</p>
+
+								<SCRIPT Language="JavaScript">
+									document.getElementById('coursename').innerHTML = c1['name'];
+									document.getElementById('coursenameshort').innerHTML = c1['shortname'];
+									document.getElementById('instructorname').innerHTML = c1['instructor'];
+									document.getElementById('slot').innerHTML = c1['slot'];
+									document.getElementById('credits').innerHTML = c1['credits'];
+									document.getElementById('ltp').innerHTML = c1['L']+"&nbsp; &nbsp;"+c1['T']+"&nbsp; &nbsp;"+c1['P'];
+									document.getElementById('content').innerHTML = c1['content'];
+								</SCRIPT>
+
+								<h4>Reviews</h4>
+								<section class="special box">
+									<h5>Add Your Review</h5>
+									<section class = "boxre">
+										<script Language="JavaScript">
+											function getcolour(num)
+											{
+												if (num==1){
+													return "#C00000"
+												}
+												if (num==2){
+													return "#FFA500"
+												}
+												if (num==3){
+													return "#FFFF00"
+												}
+												if (num==4){
+													return "#009900"
+												}
+												if (num==5){
+													return "#003300"
+												}
+											}
+
+											function colourGreen(ele)
+											{
+												idr = ele.id;
+												ele.style.backgroundColor=getcolour(idr);
+
+											}
+
+											function changetextcolor()
+											{
+												idr = document.getElementById("addreview");
+												idr.style.background="#ffffff";
+												idr.style.height="200px";
+
+											}
+										</script>
+										<SCRIPT Language="JavaScript">
+											<!-- 
+											
+											document.write('<section class="boxrto">');
+												document.write('<h4>Overall Rating</h4>');
+
+											for (i = 1; i <= 5; i++) {
+											document.write('<button class="buttre" type="button" id = "'+i+'"" onclick = "colourGreen(this)">'+i+'</button>');
+											}
+											document.write('</section>');
+
+
+											document.write('<div class="row">');
+											for (j = 0; j <= 3; j++) {
+												document.write('<section class="boxrt">');
+												document.write('<h4>Grdaing</h4>');
+
+											for (i = 1; i <= 5; i++) {
+											document.write('<button class="buttre" type="button" id = "'+i+'"" onclick = "colourGreen(this)">'+i+'</button>');
+											}
+											document.write('</section>');
+											}
+											document.write('</div>');
+											
+										</SCRIPT>
+										
+										
+										<textarea name="fname" id="addreview"></textarea>
+										<SCRIPT Language="JavaScript">
+										changetextcolor();
+										</SCRIPT>
+										<br>
+										<input type="submit" value="Submit">
+									</section>
+								
+									<SCRIPT Language="JavaScript">
+									<!-- 
+									function writereview(data){
+										for (i = 0; i < c1['revnum']; i++) {
+
+										$("#reviewname"+i).html(data[i]['UID']);
+										$("#reviewcontent"+i).html(data[i]['review']);
+										$("#reviewar"+i).html(data[i]['ar']);
+										$("#reviewgr"+i).html(data[i]['gr']);
+										$("#reviewov"+i).html(data[i]['ov']);
+										$("#reviewwork"+i).html(data[i]['work']);
+										$("#reviewinterest"+i).html(data[i]['interest']);
+										$("#reviewup"+i).val(data[i]['likes']);
+										$("#reviewdown"+i).val(data[i]['dislikes']);
+										$("#reviewrep"+i).val(data[i]['report']);
+										colourotrating();
+										colourorating();
+									}
+									}
+									var rev;
+										$( window ).load(function() {
+											$.ajax({
+											type: 'post',
+											url: 'testpage3-reviews.php',
+											data: {
+												cid: c1['CID']
+											},
+											dataType: 'json',
+											success: function( data ) {
+												rev = data;
+												writereview(data);
+												return false;
+											}
+
+											});
+										});
+
+									colourotrating();
+									colourorating();
+									//c1['revnum']
+									
+									for (i = 0; i < c1['revnum']; i++) {
+										
+									document.write('<hr/>');
+
+									document.write('<div class="12u">');
+										document.write('<section class="boxnb">');
+											document.write('<h2 id = "reviewname'+i+'"> hello </h2>');
+											document.write('<p id = "reviewcontent'+i+'">Why O people of the Noldor, why should we longer serve the jealous Valar, who cannot keep us, not even their own ralm secure from their enemy. And though now he be their foe, are not they and he of one kin </p>')
+										document.write('</section>');
+									document.write('</div>');
+
+									document.write('<div class="11u">');										
+										document.write('<section class="boxnb">');
+											document.write('<section title = "Interest Rating" class = "boxotr" id = "reviewinterest'+i+'">1</section>');
+											document.write('<section title = "Workload Rtaing" class = "boxotr" id = "reviewwork'+i+'">2</section>');
+											document.write('<section title = "Grading Rtaing" class = "boxotr" id = "reviewgr'+i+'">3</section>');
+											document.write('<section title = "Attendance Rtaing" class = "boxotr" id = "reviewar'+i+'">4</section>');
+											document.write('<section title = "Overall Rtaing" class = "boxor" id = "reviewov'+i+'">5</section><br><br>');
+										document.write('</section>');
+									document.write('</div>');
+
+									// document.write('<div class="2u">');
+									// 	document.write('<section class="boxnb">');
+									// 		document.write('<section class = "boxotr" id = "ovrat">5</section><br>');
+									// 	document.write('</section>');
+									// document.write('</div>');
+
+
+									
+										
+										document.write('<button class="butt" type="button">Upvote</button>');
+										document.write('<input id = "reviewup'+i+'" value="3" class="buttup" readonly>');
+										document.write('<button class="butt" type="button">Downvote</button>');
+										document.write('<input id = "reviewdown'+i+'" value="3" class="buttup" readonly>');
+										document.write('<button class="butt" type="button">Report</button>');
+										document.write('<input id = "reviewrep'+i+'" value="3" class="buttup" readonly>');
+										
+									
+
+
+									//-->
+									}
+									colourotrating();
+									colourorating();
+
+									// function colourGreen(ele)
+									// {	
+									// }
+									</SCRIPT>
+								</section>
+
+							</section>
+						</div>
+						
+					</div>
+					
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+						
+					<ul class="copyright">
+						<li>&copy; CRS. All rights reserved.</li>
+						<li><a href="http://templated.co">About</a></li>
+						<li><a href="http://templated.co">Blog</a></li>
+						<li><a href="http://templated.co">Contact Us</a></li>
+					</ul>
+				</div>
+			</footer>
+
+	</body>
+</html>

@@ -137,48 +137,87 @@
 											});
 										});
 
-									var reviewdata = window.opener.reviewdata;
+									var reviewdata;
+
+									function reloadreviewsspecial() {
+										$.ajax({
+										        type: 'post',
+										        async:false,
+										        url: 'promptrev.php',
+										        data: {
+										        	search0: "ty"
+										        },
+										        dataType: 'json',
+										        success: function( data ) {
+										        	reviewdata=data;
+										        	console.log(reviewdata[2]);	
+										        											        	
+
+										   			
+										        	return false;
+										        }
+
+
+										});
+									}
+
+
+
+
+									//var reviewdata = window.opener.reviewdata;
+									reloadreviewsspecial();
 									
-									
-									$( window ).load(function() {
-										var hig = parseInt(reviewdata[0],10);
+
+									var hig = parseInt(reviewdata[0],10);
 										var med = parseInt(reviewdata[1],10);
 										var low = parseInt(reviewdata[2],10);
 										var tot = hig+med+low;
-										
-										document.getElementById("revnumh").innerHTML = hig;
-										document.getElementById("revnumm").innerHTML = med;
-										document.getElementById("revnuml").innerHTML = low;
-										document.getElementById("revnumt").innerHTML = tot;
-										colourotrating();
 
-									});
+										colourotrating();
+									
+									
+									// $( window ).load(function() {
+									// 	var hig = parseInt(reviewdata[0],10);
+									// 	var med = parseInt(reviewdata[1],10);
+									// 	var low = parseInt(reviewdata[2],10);
+									// 	var tot = hig+med+low;
+										
+									// 	document.getElementById("revnumh").innerHTML = hig;
+									// 	document.getElementById("revnumm").innerHTML = med;
+									// 	document.getElementById("revnuml").innerHTML = low;
+									// 	document.getElementById("revnumt").innerHTML = tot;
+									// 	colourotrating();
+
+									// });
 								</script>
 							
 							<section class="boxcp">
 								<h3>Statistics</h3>
 
 									<section class="special box">
-									<section class = "boxotr" id = "revnumh">1</section>
+									<section class = "boxotr" id = "revnumh"><script>document.write(hig);</script></section>
 									<h4>High Reoprts</h4>
 									</section>
 
 									<section class="special box">
-									<section class = "boxotr" id = "revnumm">2</section>
+									<section class = "boxotr" id = "revnumm"><script>document.write(med);</script></section>
 									<h4>Medium Reports</h4>
 									</section>
 
 									<section class="special box">
-									<section class = "boxotr" id = "revnuml">3</section>
+									<section class = "boxotr" id = "revnuml" onChange="callfunc();"><script>document.write(low);</script></section>
 									<h4>Low Reports</h4>
 									</section>
 
 									<section class="special box">
-									<section class = "boxotr" id = "revnumt">3</section>
+									<section class = "boxotr" id = "revnumt"><script>document.write(tot);</script></section>
 									<h4>Total</h4>
 									</section>
 									
 									<SCRIPT Language="JavaScript">
+									function callfunc(){
+										var newwindow = window.open('seepromptreviews.html','_self')	;
+									}
 									
 									</SCRIPT>
 
@@ -274,9 +313,30 @@
 
 									}
 
+									function your_func(id1){
+										window.location.reload();
 
 
-									function reloadreviews() {
+										// window.open('seepromptreviews.html','');
+										// window.close();
+
+										   //   	var hig = parseInt(reviewdata[0],10);
+													// var med = parseInt(reviewdata[1],10);
+													// var low = parseInt(reviewdata[2],10);
+										   //      	document.getElementById('revnumt').innerHTML = hig+med+low;
+										   //      	document.getElementById('revnumh').innerHTML = hig;
+										   //      	document.getElementById('revnumm').innerHTML = med;
+										   //      	document.getElementById('revnuml').innerHTML = low;
+										   // 		$("#reviewdiv"+id1).hide();
+
+										return false;
+									}
+
+									
+
+
+
+									function reloadreviews(id1) {
 										$.ajax({
 										        type: 'post',
 										        url: 'promptrev.php',
@@ -285,19 +345,23 @@
 										        },
 										        dataType: 'json',
 										        success: function( data ) {
-										        	reviewdata = data;
+										        	reviewdata=data;
+										        	console.log(reviewdata[2]);	
+										        											        	
+
+										   			your_func(id1);
+										        	
 										        	return false;
 										        }
 
 										});
 									}
 
-									$( window ).load(function() {
-										reloadreviews();
+									// $(document).ready(function() {
+									// 	reloadreviews();
 										
-									});
-									window.alert(reviewdata[2]);
-
+									// });
+									
 									$(".reviewsubmit").on( 'click', function () {
 										$id1 = $(this).attr("id");
 										$uid = reviewdata[$id1]['UID'];
@@ -311,9 +375,8 @@
 									        },
 									        dataType: 'json',
 									        success: function( data ) {
-									        	reloadreviews();
-									        	$("#reviewdiv"+$id1).hide();
-									        	//window.open('seepromptreviews.html','_self');
+									        	reloadreviews($id1);
+									        	//$("#reviewdiv"+$id1).hide();
 									        	return false;
 									        }
 

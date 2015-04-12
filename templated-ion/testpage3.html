@@ -125,11 +125,29 @@
 									</section>
 
 									<section class="special box">
-									<h2><a id = "removeprompt" href="javascript:void(0);" onclick="removeCourse();">Report</a></h2>
+									<h2><a id = "removeprompt" href="javascript:void(0);" >Report</a></h2>
 
 									</section>
 
 									<SCRIPT Language="JavaScript">
+
+									$("#removeprompt").on( 'click', function () {
+										$.ajax({
+										type: 'post',
+										url: 'removecourse-prompt.php',
+										data: {
+								        	search0: c1['CID'],
+								            
+								        },
+										dataType: 'json',
+										success: function( data ) {
+											window.open('left-sidebar.html','_self');
+											return false;
+										}
+
+										});
+									});
+
 									document.getElementById('workrat01').innerHTML = Math.round(c1['work']);
 									document.getElementById('ovrat01').innerHTML = Math.round(c1['ov']);
 									document.getElementById('grrat01').innerHTML = Math.round(c1['gr']);

@@ -48,7 +48,35 @@
 						<div class="9u">
 						<section>
 
+						<script>
+						var t;
+						var t1 = window.opener.t1;
+						var t2 = window.opener.t2;
+						var t3 = window.opener.t3;
+						var t4 = window.opener.t4;
 
+					    
+					    function searchfunctionsp() {
+					    $.ajax({
+					        type: 'post',
+					        async:false,
+					        url: 'left-sidebar-search.php',
+					        data: {
+					        	search0: t1,
+					            search1: t2,
+					            search2: t3,
+					            search3: t4
+					        },
+					        dataType: 'json',
+					        success: function( data ) {
+					            console.log( data[1] );
+					            t = data;
+					            return false;
+					        }
+
+						    });
+						}
+					</script>
 
 						<SCRIPT Language="JavaScript">
 
@@ -95,8 +123,8 @@
 									   
 						<!-- 
 
-						
-						var t = window.opener.ui;
+						searchfunctionsp();
+						//t = window.opener.ui;
 
 						var courseselected;
 

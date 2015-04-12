@@ -47,25 +47,41 @@
 					<input id = "submitsearch" type="submit" value="Search">
 					<script>
 					    var ui;
-					    $("#submitsearch").on( 'click', function () {
-					    $.ajax({
-					        type: 'post',
-					        url: 'left-sidebar-search.php',
-					        data: {
-					        	search0: $("#search0").val(),
-					            search1: $("#search1").val(),
-					            search2: $("#search2").val(),
-					            search3: $("#search3").val()
-					        },
-					        dataType: 'json',
-					        success: function( data ) {
-					            console.log( data[1] );
-					            ui = data;
-					            window.open('testpage2.html','');
-					            return false;
-					        }
+					//     $("#submitsearch").on( 'click', function () {
+					//     $.ajax({
+					//         type: 'post',
+					//         url: 'left-sidebar-search.php',
+					//         data: {
+					//         	search0: $("#search0").val(),
+					//             search1: $("#search1").val(),
+					//             search2: $("#search2").val(),
+					//             search3: $("#search3").val()
+					//         },
+					//         dataType: 'json',
+					//         success: function( data ) {
+					//             console.log( data[1] );
+					//             ui = data;
+					//             window.open('testpage2.html','');
+					//             return false;
+					//         }
 
-					    });
+					//     });
+					// });
+						
+						var t1;
+						var t2;
+						var t3;
+						var t4;
+						
+						
+					    $("#submitsearch").on( 'click', function () {
+					    t1 = $("#search0").val();
+						t2 = $("#search1").val();
+						t3 = $("#search2").val();
+						t4 = $("#search3").val();
+
+						window.open('testpage2.html','_blank');
+					    return false;
 					});
 					</script>
 				</div>

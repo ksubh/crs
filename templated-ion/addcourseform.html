@@ -112,32 +112,6 @@
 									<br>
 									<input id = "submitsearch" type="submit" value="Add this Course">
 									<script>
-										$( window ).load(function() {
-											$.ajax({
-											type: 'post',
-											url: 'checklogin.php',
-											data: {
-									        	search0: "ty",
-									            
-									        },
-											dataType: 'json',
-											success: function( data ) {
-												if (data[0]=="Multiple Admins Logged in"){
-													window.alert("Multiple Admins Logged in - All Logging Out");
-													window.open("adminloginform.html",'_self')
-												}
-												else if (data[0]=="No Admin Logged in"){
-													window.alert("You are not logged in.");
-													window.open('adminloginform.html','_self');
-												}
-												else{
-													window.alert("Welcome Admin");
-												}
-												return false;
-											}
-
-											});
-										});
 					    				$("#submitsearch").on( 'click', function () {
 									    $.ajax({
 									        type: 'post',

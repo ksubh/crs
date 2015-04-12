@@ -22,6 +22,7 @@ $rc = 0;
 while($r = mysqli_fetch_assoc($result)) {
 	$rc+=1;
 	if ($rc<=1){
+	$rows[]=$r['name'];	
 	$rows[]=$r['id'];	
 	}
 	else{

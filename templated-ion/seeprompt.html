@@ -1,0 +1,315 @@
+<!DOCTYPE HTML>
+<!--
+	Ion by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Right Sidebar - Ion by TEMPLATED</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+		</noscript>
+	</head>
+	<body id="top">
+
+		<!-- Header -->
+			<header id="header" class="skel-layers-fixed">
+				<h1><a href="#">Ion</a></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="page2.html">Home</a></li>
+						<li><a href="left-sidebar.html">Left Sidebar</a></li>
+						<li><a href="right-sidebar.html">Right Sidebar</a></li>
+						<li><a href="no-sidebar.html">No Sidebar</a></li>
+						<li><a href="#" class="button special">Sign Up</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Main -->
+			<section id="main" class="wrapper style1">
+				<header class="major">
+					<h2>Course Page</h2>
+					<p>Contains Course Details</p>
+				</header>
+				<div class="container">
+					<div class="row">
+						<div class="4u">
+
+							<SCRIPT Language="JavaScript">
+
+							function getcoloury(num)
+								{ num   = Math.round(num);
+									if (num==1){
+										return "#C00000"
+									}
+									if (num==2){
+										return "#FFA500"
+									}
+									if (num==3){
+										return "#FFFF00"
+									}
+									if (num==4){
+										return "#009900"
+									}
+									if (num==5){
+										return "#003300"
+									}
+								}
+
+								
+								function colourotrating()
+								{
+									var x = document.getElementsByClassName("boxotr");
+									for (var i = 0; i < x.length; ++i) {
+										var ele = x[i]; 
+										if (ele.id=='revnumh'){
+											ele.style.backgroundColor=getcoloury(1);
+										}
+										else if (ele.id=='revnumm'){
+											ele.style.backgroundColor=getcoloury(2);
+										}
+										else if (ele.id=='revnumt'){
+											ele.style.backgroundColor="#0000ff";
+										}
+										else if (ele.id=='revnuml'){
+											ele.style.backgroundColor=getcoloury(3);
+										}
+										else{
+											idr = ele.textContent;
+											ele.style.backgroundColor=getcoloury(idr);
+										}
+										
+									}
+									
+								}
+
+								function colourorating()
+								{
+									var x = document.getElementsByClassName("boxor");
+									for (var i = 0; i < x.length; ++i) {
+										var ele = x[i];  
+										idr = ele.textContent;
+										ele.style.backgroundColor=getcoloury(idr);
+									}
+									
+								}
+								</script>
+								<script>
+									var t = window.opener.prompt1;
+									var table;
+									var column;
+									var value;
+
+									$( window ).load(function() {
+											$.ajax({
+											type: 'post',
+											url: 'checklogin.php',
+											data: {
+									        	search0: "ty",
+									            
+									        },
+											dataType: 'json',
+											success: function( data ) {
+												if (data[0]=="Multiple Admins Logged in"){
+													window.alert("Multiple Admins Logged in - All Logging Out");
+													window.open("adminloginform.html",'_self')
+												}
+												else if (data[0]=="No Admin Logged in"){
+													window.alert("You are not logged in.");
+													window.open('adminloginform.html','_self');
+												}
+												else{
+													window.alert("Welcome Admin");
+												}
+												return false;
+											}
+
+											});
+										});
+
+									$( window ).load(function() {
+									    $.ajax({
+									        type: 'post',
+									        url: 'add-course.php',
+									        data: {
+									        	prompt: $("#shortname").val(),
+									        	slot: $("#slot").val()
+									        										            
+									        },
+									        dataType: 'json',
+									        success: function( data ) {
+									        	if (data[0]=="Successfully Added the Course"){
+									        		document.getElementById('revnumt').innerHTML = 2;
+									        	}
+									        	else{
+									        		window.alert("The Course Exists")
+									        	}
+									            
+									            return false;
+									        }
+
+									    });
+									});
+								</script>
+							
+							<section class="boxcp">
+								<h3>Statistics</h3>
+
+									<section class="special box">
+									<section class = "boxotr" id = "revnumh">1</section>
+									<h4>High Reoprts</h4>
+									</section>
+
+									<section class="special box">
+									<section class = "boxotr" id = "revnumm">2</section>
+									<h4>Medium Reports</h4>
+									</section>
+
+									<section class="special box">
+									<section class = "boxotr" id = "revnuml">3</section>
+									<h4>Low Reports</h4>
+									</section>
+
+									<section class="special box">
+									<section class = "boxotr" id = "revnumt">3</section>
+									<h4>Total</h4>
+									</section>
+									
+									<SCRIPT Language="JavaScript">
+									
+									</SCRIPT>
+
+									
+								</ul>
+							</section>
+						</div>
+
+						<div class="7u">
+							<section>
+
+								
+								<section class="special box">
+									<h2>Top Reported Reviews</h2>
+									<script Language="JavaScript">
+											function getcolour(num)
+											{
+												if (num==1){
+													return "#C00000"
+												}
+												if (num==2){
+													return "#FFA500"
+												}
+												if (num==3){
+													return "#FFFF00"
+												}
+												if (num==4){
+													return "#009900"
+												}
+												if (num==5){
+													return "#003300"
+												}
+											}
+
+											function colourGreen(ele)
+											{
+												idr = ele.id;
+												ele.style.backgroundColor=getcolour(idr);
+
+											}
+
+											function changetextcolor()
+											{
+												idr = document.getElementById("addreview");
+												idr.style.background="#ffffff";
+												idr.style.height="200px";
+
+											}
+											//changetextcolor();
+										</script>
+										
+										
+								
+									<SCRIPT Language="JavaScript">
+									//totalnum=7;
+
+									var num=0;
+									renderreviews(document.getElementById('revnumt').innerText);
+
+									function renderreviews(totalnum){
+										for (i = 0; i < totalnum; i++) {
+										
+									document.write('<hr/>');
+
+									document.write('<div class="12u">');
+										document.write('<section class="boxnb">');
+											document.write('<h2>Feanor</h2>');
+											document.write('<p>Why O people of the Noldor, why should we longer serve the jealous Valar, who cannot keep us, not even their own ralm secure from their enemy. And though now he be their foe, are not they and he of one kin </p>')
+										document.write('</section>');
+									document.write('</div>');
+
+									document.write('<div class="11u">');										
+										document.write('<section class="boxnb">');
+											document.write('<section class = "boxotr" id = "arrat">1</section>');
+											document.write('<section class = "boxotr" id = "grrat">2</section>');
+											document.write('<section class = "boxotr" id = "inrat">3</section>');
+											document.write('<section class = "boxotr" id = "worat">4</section>');
+											document.write('<section class = "boxor" id = "ovrat">5</section><br><br>');
+										document.write('</section>');
+									document.write('</div>');
+
+										document.write('<button class="butt" type="button">Upvote</button>');
+										document.write('<input value="3" class="buttup" readonly>');
+										document.write('<button class="butt" type="button">Downvote</button>');
+										document.write('<input value="3" class="buttup" readonly>');
+										document.write('<button class="butt" type="button">Report</button>');
+										document.write('<input value="3" class="buttup" readonly>');
+
+
+										
+										colourotrating();
+										colourorating();
+									
+
+									//-->
+									}
+
+									}
+									
+									</SCRIPT>
+								</section>
+
+							</section>
+						</div>
+						
+					</div>
+					
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+						
+					<ul class="copyright">
+						<li>&copy; CRS. All rights reserved.</li>
+						<li><a href="http://templated.co">About</a></li>
+						<li><a href="http://templated.co">Blog</a></li>
+						<li><a href="http://templated.co">Contact Us</a></li>
+					</ul>
+				</div>
+			</footer>
+
+	</body>
+</html>

@@ -28,7 +28,7 @@ getenv('REMOTE_ADDR');
 while($r = mysqli_fetch_assoc($result)) {
 	$numval+=1;
 	
-	$sql21 = "select * from admin where insession=1 AND ipaddress='".$ip."';";
+	$sql21 = "select * from admin where id<>".$s0." AND insession=1 AND ipaddress='".$ip."';";
 	$result21 = mysqli_query($link,$sql21);
 	$numlog21 = 0;
 	while($r31 = mysqli_fetch_assoc($result21)) {
@@ -49,7 +49,11 @@ while($r = mysqli_fetch_assoc($result)) {
 		$numlog3+=1;
 	}
 
-	if ($numlog2==0 && $numlog3==0){
+	if ($numlog21!=0){
+		$rows[0]="You are logged in from another id";
+	}
+
+	else if ($numlog2==0 && $numlog3==0){
 		$sql1 = "update admin set insession = 1 , ipaddress ='".$ip."'where id=".$s0.";";
 		$result1 = mysqli_query($link,$sql1);
 		$rows[0]="Login Succesful";

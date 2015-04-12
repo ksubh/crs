@@ -59,31 +59,55 @@
 		<!-- Main -->
 			<section id="main" class="wrapper style1">
 				<header class="major">
-					<h2>User Profile</h2>
-					<p>Contains User Details</p>
+					<h2>Admin Profile</h2>
+					<p>Contains Admin Details</p>
 				</header>
 				<div class="container">
 					<div class="row">
 
 						<div class="3u">
 							<section class="boxcp">
-								<h3>Turin Turambar</h3>
+								<h3 id="adminnm">Turin Turambar</h3>
 								<section class="image fit"><img src="images/pic02.jpg" alt="" /></section>
 							</section>
 						</div>
 
-						<div class="4u">
+						<div class="5u">
 							<section class="box">
-								<h3>Courses Recommended</h3>
+								<h3>See Prompts</h3>
 
 								<section class="boxnb">
 									<SCRIPT Language="JavaScript">
-										for (i = 0; i <= 3; i++) {										
+										var adminname;
+										var prompt1;
+										var reviewdata;
+
+										var buttontypes = ["Add Course","Remove Course","Remove Review"];
+										//var buttonfuncs = ["courseAddPrompt","courseRemovePrompt","reviewRemovePrompt"];
+
+
+										for (i = 0; i < buttontypes.length; i++) {										
 										document.write('<section class="box">');
-										document.write('<h2>Col774</h2>');
-										document.write('<h3>Machine Learning</h3>');
+										document.write('<h2><a id = "adminprompt'+i+'" href="javascript:void(0);">'+buttontypes[i]+'</a></h2>');
 										document.write('</section>');
 										}
+
+										$("#adminprompt2").on( 'click', function () {
+											$.ajax({
+										        type: 'post',
+										        url: 'promptrev.php',
+										        data: {
+										        	search0: "ty"
+										        },
+										        dataType: 'json',
+										        success: function( data ) {
+										        	reviewdata = data;
+										            window.open('seepromptreviews.html','');
+										            return false;
+										        }
+
+										    });
+										});	
 
 										$( window ).load(function() {
 											$.ajax({
@@ -104,6 +128,8 @@
 													window.open('adminloginform.html','_self');
 												}
 												else{
+													adminname = data[0];
+													document.getElementById('adminnm').innerHTML = adminname;
 													window.alert("Welcome Admin");
 												}
 												return false;
@@ -118,7 +144,14 @@
 							
 						</div>
 
-						<div class="5u">
+
+						<div class="4u">
+							<section class="boxcp">
+								<h3>See Performance</h3>
+							</section>
+						</div>
+
+						<!-- <div class="5u">
 							<section class="box">
 								<h3>Database Changes</h3>
 
@@ -138,7 +171,7 @@
 								</section>
 
 							</section>
-						</div>
+						</div> -->
 
 					</div>
 				</div>

@@ -53,6 +53,7 @@
 							<div class = '12u'>
 								<section class="special box">
 
+
 									<ul class="actions">
 									<li>
 									<h4>Course Shorthand</h4>
@@ -105,6 +106,14 @@
 									
 									<h4>Course Content</h4>
 									<textarea id="content"></textarea>
+
+									<script>
+										var shortname = window.opener.currentcourse;
+										var instructor = window.opener.currentinstr;
+										window.opener.close();
+										document.getElementById('shortname').value = shortname;
+										document.getElementById('instructor').value = instructor;
+									</script>
 									
 
 									
@@ -112,6 +121,33 @@
 									<br>
 									<input id = "submitsearch" type="submit" value="Add this Course">
 									<script>
+									$( window ).load(function() {
+											$.ajax({
+											type: 'post',
+											url: 'checklogin.php',
+											data: {
+									        	search0: "ty",
+									            
+									        },
+											dataType: 'json',
+											success: function( data ) {
+												if (data[0]=="Multiple Admins Logged in"){
+													window.alert("Multiple Admins Logged in - All Logging Out");
+													window.open("adminloginform.html",'_self')
+												}
+												else if (data[0]=="No Admin Logged in"){
+													window.alert("You are not logged in.");
+													window.open('adminloginform.html','_self');
+												}
+												else{
+													window.alert("Welcome Admin");
+												}
+												return false;
+											}
+
+											});
+										});
+
 					    				$("#submitsearch").on( 'click', function () {
 									    $.ajax({
 									        type: 'post',
@@ -131,7 +167,7 @@
 									        dataType: 'json',
 									        success: function( data ) {
 									        	if (data[0]=="Successfully Added the Course"){
-									        		window.open('adminprofile.html','_self');
+									        		window.open('promptaddcourse.html','_self');
 									        	}
 									        	else{
 									        		window.alert("The Course Exists")

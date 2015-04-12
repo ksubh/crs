@@ -336,26 +336,26 @@
 
 
 
-									function reloadreviews(id1) {
-										$.ajax({
-										        type: 'post',
-										        url: 'promptrev.php',
-										        data: {
-										        	search0: "ty"
-										        },
-										        dataType: 'json',
-										        success: function( data ) {
-										        	reviewdata=data;
-										        	console.log(reviewdata[2]);	
+									// function reloadreviews(id1) {
+									// 	$.ajax({
+									// 	        type: 'post',
+									// 	        url: 'promptrev.php',
+									// 	        data: {
+									// 	        	search0: "ty"
+									// 	        },
+									// 	        dataType: 'json',
+									// 	        success: function( data ) {
+									// 	        	reviewdata=data;
+									// 	        	console.log(reviewdata[2]);	
 										        											        	
 
-										   			your_func(id1);
+									// 	   			your_func(id1);
 										        	
-										        	return false;
-										        }
+									// 	        	return false;
+									// 	        }
 
-										});
-									}
+									// 	});
+									// }
 
 									// $(document).ready(function() {
 									// 	reloadreviews();
@@ -375,7 +375,8 @@
 									        },
 									        dataType: 'json',
 									        success: function( data ) {
-									        	reloadreviews($id1);
+									        	your_func($id1);
+									        	//reloadreviews($id1);
 									        	//$("#reviewdiv"+$id1).hide();
 									        	return false;
 									        }

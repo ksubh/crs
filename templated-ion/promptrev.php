@@ -22,8 +22,8 @@ $usercount = $rusercount['count1'];
 
  
 $sqls = "select COUNT(*) as serious from reviews where report > 15;";
-$sqlm = "select COUNT(*) as medium from reviews where report > 10;";
-$sqll = "select COUNT(*) as low from reviews where report > 5;";
+$sqlm = "select COUNT(*) as medium from reviews where report > 10 AND report<=15;";
+$sqll = "select COUNT(*) as low from reviews where report > 5 AND report<=10;";
 
 $sql = "select * from reviews where report > 5 order by report DESC;";
 

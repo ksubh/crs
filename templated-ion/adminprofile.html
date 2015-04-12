@@ -92,22 +92,37 @@
 										document.write('</section>');
 										}
 
-										$("#adminprompt2").on( 'click', function () {
-											$.ajax({
-										        type: 'post',
-										        url: 'promptrev.php',
-										        data: {
-										        	search0: "ty"
-										        },
-										        dataType: 'json',
-										        success: function( data ) {
-										        	reviewdata = data;
-										            window.open('seepromptreviews.html','');
-										            return false;
-										        }
+										// $("#adminprompt2").on( 'click', function () {
+										// 	$.ajax({
+										//         type: 'post',
+										//         url: 'promptrev.php',
+										//         data: {
+										//         	search0: "ty"
+										//         },
+										//         dataType: 'json',
+										//         success: function( data ) {
+										//         	reviewdata = data;
+										//             window.open('seepromptreviews.html','');
+										//             return false;
+										//         }
 
-										    });
+										//     });
+										// });
+
+										$("#adminprompt2").on( 'click', function () {
+											window.open('seepromptreviews.html','');
+										    
+										});
+
+										$("#adminprompt1").on( 'click', function () {
+											window.open('promptremovecourse.html','');
+										    
 										});	
+
+										$("#adminprompt0").on( 'click', function () {
+											window.open('promptaddcourse.html','');
+										    
+										});		
 
 										$( window ).load(function() {
 											$.ajax({

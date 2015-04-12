@@ -50,10 +50,10 @@
 
 						<script>
 						var t;
-						var t1 = window.opener.t1;
-						var t2 = window.opener.t2;
-						var t3 = window.opener.t3;
-						var t4 = window.opener.t4;
+						var t1 = localStorage.getItem("t1");
+						var t2 = localStorage.getItem("t2");
+						var t3 = localStorage.getItem("t3");
+						var t4 = localStorage.getItem("t4");
 
 					    
 					    function searchfunctionsp() {
@@ -69,13 +69,19 @@
 					        },
 					        dataType: 'json',
 					        success: function( data ) {
-					            console.log( data[1] );
-					            t = data;
+					            t = data;					            
 					            return false;
 					        }
 
 						    });
 						}
+
+						searchfunctionsp();
+						
+						
+						
+						
+
 					</script>
 
 						<SCRIPT Language="JavaScript">
@@ -123,19 +129,24 @@
 									   
 						<!-- 
 
-						searchfunctionsp();
+						
 						//t = window.opener.ui;
+
 
 						var courseselected;
 
 						function toCoursePage(id1){
+
 							var strd = id1.id;
 							var res = strd.replace("try", "");
 							var anum = parseInt(res);
 							courseselected = t[anum];
+							localStorage.setItem("cs",JSON.stringify(t[anum]));
 							window.open('testpage3.html','');
 					        return false;
 						}
+
+
 
 						if (!t.length){
 							document.write('<div class="12u">');
@@ -167,6 +178,7 @@
 							$("#submitprompt").on( 'click', function () {
 							    $.ajax({
 							        type: 'post',
+							        //not yet defined - don't be fooled
 							        url: 'course-addprompt.php',
 							        data: {
 							        	search0: $("#shortname").val(),
@@ -188,9 +200,10 @@
 							
 
 						}
-						
-						for (i = 0; i <= t.length; i++) {
-						s0 = (t[i]['name']);
+
+
+						for (i = 0; i < t.length; i++) {
+						s0 = t[i]['name'];
 						s1 = (t[i]['shortname']);
 						s2 = (t[i]['IID']);
 						s3 = (t[i]['CID']);

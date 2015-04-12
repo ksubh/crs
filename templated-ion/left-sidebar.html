@@ -79,8 +79,12 @@
 						t2 = $("#search1").val();
 						t3 = $("#search2").val();
 						t4 = $("#search3").val();
+						localStorage.setItem("t1",t1);
+						localStorage.setItem("t2",t2);
+						localStorage.setItem("t3",t3);
+						localStorage.setItem("t4",t4);
 
-						window.open('testpage2.html','_blank');
+						window.open('testpage2.html','_self');
 					    return false;
 					});
 					</script>

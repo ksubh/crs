@@ -43,7 +43,7 @@
 	<body id="top">
 
 		<!-- Header -->
-			<header id="header" class="skel-layers-fixed">
+		<header id="header" class="skel-layers-fixed">
 				<h1><a href="#">Ion</a></h1>
 				<nav id="nav">
 					<ul>
@@ -51,10 +51,36 @@
 						<li><a href="left-sidebar.html">Left Sidebar</a></li>
 						<li><a href="right-sidebar.html">Right Sidebar</a></li>
 						<li><a href="no-sidebar.html">No Sidebar</a></li>
-						<li><a href="#" class="button special">Sign Up</a></li>
+						<li><a href="javascript:void(0);" id= "logoutbut" class="button special">Admin Log Out</a></li>
 					</ul>
 				</nav>
 			</header>
+			<script>
+
+			$("#logoutbut").on( 'click', function () {
+				$.ajax({
+				type: 'post',
+				url: 'logout.php',
+				data: {
+		        	search0: "ty",
+		            
+		        },
+				dataType: 'json',
+				success: function( data ) {
+					if (data[0]=="An Error Occured. Please try again"){
+						window.alert("An Error Occured. Please try again");
+					}
+					
+					else{
+						window.open('adminloginform.html','_self');
+						
+					}
+					return false;
+				}
+
+				});
+			});
+			</script>
 
 		<!-- Main -->
 			<section id="main" class="wrapper style1">

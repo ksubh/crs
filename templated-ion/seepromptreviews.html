@@ -32,10 +32,36 @@
 						<li><a href="left-sidebar.html">Left Sidebar</a></li>
 						<li><a href="right-sidebar.html">Right Sidebar</a></li>
 						<li><a href="no-sidebar.html">No Sidebar</a></li>
-						<li><a href="#" class="button special">Sign Up</a></li>
+						<li><a href="javascript:void(0);" id= "logoutbut" class="button special">Admin Log Out</a></li>
 					</ul>
 				</nav>
 			</header>
+			<script>
+
+			$("#logoutbut").on( 'click', function () {
+				$.ajax({
+				type: 'post',
+				url: 'logout.php',
+				data: {
+		        	search0: "ty",
+		            
+		        },
+				dataType: 'json',
+				success: function( data ) {
+					if (data[0]=="An Error Occured. Please try again"){
+						window.alert("An Error Occured. Please try again");
+					}
+					
+					else{
+						window.open('adminloginform.html','_self');
+						
+					}
+					return false;
+				}
+
+				});
+			});
+			</script>
 
 		<!-- Main -->
 			<section id="main" class="wrapper style1">
@@ -196,7 +222,7 @@
 
 									<section class="special box">
 									<section class = "boxotr" id = "revnumh"><script>document.write(hig);</script></section>
-									<h4>High Reoprts</h4>
+									<h4>High Reports</h4>
 									</section>
 
 									<section class="special box">
@@ -278,6 +304,18 @@
 									renderreviews(reviewdata.length);
 
 									function renderreviews(totalnum){
+										if (totalnum==3){
+											document.write('<div class="12u">');
+										document.write('<section class="boxnb">');
+											document.write('<h2>No Reported reviews</h2>');
+											document.write('<h4>Either you are working very well, or the website has encountered an error</h4>');
+											document.write('<h4>Good Luck finding out which</h4>');
+											
+										document.write('</section>');
+									document.write('</div>');
+
+										}
+										else{
 										for (i = 3; i < totalnum; i++) {
 										
 									
@@ -307,7 +345,7 @@
 										colourotrating();
 										colourorating();
 									
-
+										}
 									//-->
 									}
 

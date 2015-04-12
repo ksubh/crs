@@ -123,6 +123,11 @@
 									<h4>Workload</h4>
 									</section>
 
+									<section class="special box">
+									<h2><a id = "removeprompt" href="javascript:void(0);" onclick="removeCourse();">Report</a></h2>
+
+									</section>
+
 									<SCRIPT Language="JavaScript">
 									document.getElementById('workrat01').innerHTML = Math.round(c1['work']);
 									document.getElementById('ovrat01').innerHTML = Math.round(c1['ov']);
@@ -263,7 +268,7 @@
 									function writereview(data){
 										for (i = 0; i < c1['revnum']; i++) {
 
-										$("#reviewname"+i).html(data[i]['UID']);
+										$("#reviewname"+i).html(data[i]['username']);
 										$("#reviewcontent"+i).html(data[i]['review']);
 										$("#reviewar"+i).html(data[i]['ar']);
 										$("#reviewgr"+i).html(data[i]['gr']);

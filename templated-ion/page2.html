@@ -1,12 +1,7 @@
 <!DOCTYPE HTML>
-<!--
-	Ion by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
 <html>
 	<head>
-		<title>Ion by TEMPLATED</title>
+		<title>CRS - Search Results</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -29,7 +24,7 @@
 
 		<!-- Header -->
 			<header id="header" class="skel-layers-fixed">
-				<h1><a href="#">Ion</a></h1>
+				<h1><a href="#">CRS</a></h1>
 				<nav id="nav">
 					<ul>
 						<li><a href="page2.html">Home</a></li>
@@ -42,33 +37,7 @@
 			</header>
 
 		
-		<!-- One -->
-			<!-- <section id="main" class="wrapper style1">
-				
-				<div class="container">
-					<div class="row">
-						<div class="4u">
-							
-							<section>
-								<h3>Ante sed commodo</h3>
-								<ul class="alt">
-									<li><a href="#">Erat blandit risus vis adipiscing</a></li>
-									<li><a href="#">Tempus ultricies faucibus amet</a></li>
-									<li><a href="#">Arcu commodo non adipiscing quis</a></li>
-									<li><a href="#">Accumsan vis lacinia semper</a></li>
-									<li><a href="#">Erat blandit risus vis adipiscing</a></li>
-									<li><a href="#">Tempus ultricies faucibus amet</a></li>
-									<li><a href="#">Arcu commodo non adipiscing quis</a></li>
-									<li><a href="#">Accumsan vis lacinia semper</a></li>
-								</ul>
-							</section>
-						</div>
-						
-					</div>
-					
-				</div>
-			</section> -->
-			<section id="one" class="wrapper style1">
+		<section id="one" class="wrapper style1">
 				<header class="major">
 					<h2>List Display Page</h2>
 					<p>Displays results of various search, sort and filter queries</p>
@@ -125,34 +94,72 @@
 								}
 									   
 						<!-- 
+
 						
-						for (i = 0; i <= 8; i++) {
-							
+						var t = window.opener.ui;
+
+						var courseselected;
+
+						function toCoursePage(id1){
+							var strd = id1.id;
+							var res = strd.replace("try", "");
+							var anum = parseInt(res);
+							courseselected = t[anum];
+							window.open('right-sidebar.html','');
+					        return false;
+						}
+						
+						for (i = 0; i <= t.length; i++) {
+						s0 = (t[i]['name']);
+						s1 = (t[i]['shortname']);
+						s2 = (t[i]['IID']);
+						s3 = (t[i]['CID']);
+						s4 = (t[i]['slot']);
+						s5 = (t[i]['content']);
+						s6 = (t[i]['L']);
+						s7 = (t[i]['T']);
+						s8 = (t[i]['P']);
+						s9 = (t[i]['credits']);
+						s10 = (t[i]['instructor']);
+
+						// s11 = Math.round((t[i]['ov']*10)/10);
+						// s12 = Math.round((t[i]['gr']*10)/10);
+						// s13 = Math.round((t[i]['ar']*10)/10);
+						// s14 = Math.round((t[i]['interest']*10)/10);
+						// s15 = Math.round((t[i]['work']*10)/10);
+
+
+						s11 = Math.round(t[i]['ov']);
+						s12 = Math.round(t[i]['gr']);
+						s13 = Math.round(t[i]['ar']);
+						s14 = Math.round(t[i]['interest']);
+						s15 = Math.round(t[i]['work']);
+						
 						document.write('<div class="12u">');
 						document.write('<section class="special box">');
 						document.write('<div class="row">');
 						document.write('<div class="4u">');
 						//document.write('<i class="icon fa-area-chart major"></i>');
 						document.write('<section class="boxnb">');
-						document.write('<section class = "boxor" id = "ovrat">5</section><br>');
+						document.write('<section class = "boxor" title="Overall Rating" id = "ovrat">'+s11+'</section><br>');
 						document.write('</section>');
 						colourrating();
 						document.write('<section class="boxnb">');
-						document.write('<section class = "boxotr" id = "arrat">1</section>');
-						document.write('<section class = "boxotr" id = "grrat">2</section>');
-						document.write('<section class = "boxotr" id = "inrat">3</section>');
-						document.write('<section class = "boxotr" id = "worat">4</section>');
+						document.write('<section class = "boxotr" title="Attendance Rating" id = "arrat">'+s13+'</section>');
+						document.write('<section class = "boxotr" title="Grading Rating" id = "grrat">'+s12+'</section>');
+						document.write('<section class = "boxotr" title="Interest Rating" id = "inrat">'+s14+'</section>');
+						document.write('<section class = "boxotr" title="Workload Rating" id = "worat">'+s15+'</section>');
 						document.write('</section>');
 						colourotrating();
 						document.write('</div>');
 						document.write('<div class="8u">');
 						document.write('<section class="boxnb">');
 
-						document.write('<h2>CSL333</h2>');
+						document.write('<h2><a id = "try'+i+'" href="javascript:void(0);" onclick="toCoursePage(this);">'+s1+'</a></h2>');
 						
-						document.write('<h3>Machine Learning</h3>');
+						document.write('<h3>'+s0+'</h3>');
 
-						document.write('<h5>Instructor: Mausam  &nbsp; Credits: 4.0 &nbsp; Slot: M </h5>')
+						document.write('<h5>Instructor: '+s10+'  &nbsp; Credits: '+s9+' &nbsp; Slot: '+s4+' </h5>')
 						
 						document.write('</section>');
 						document.write('</div>');

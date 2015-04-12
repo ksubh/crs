@@ -108,6 +108,58 @@
 							window.open('testpage3.html','');
 					        return false;
 						}
+
+						if (!t.length){
+							document.write('<div class="12u">');
+							document.write('<section class="special box">');
+							
+							
+							//document.write('<h2><a id = "tryempty" href="javascript:void(0);" onclick="toCoursePage(this);">p1</a></h2>');
+							
+							document.write('<h3>OOPS!</h3>');
+							document.write('<h4> It looks like you are looking for a ghost course.</h4> ');
+							document.write('<p>	We do not have any information about this course. You can always prompt the admin to add this course. Just fill in these details, and our admins will take care of the rest.</p>');
+
+							document.write('<ul class="actions">');
+							document.write('		<li>');
+							document.write('		<h4>Course Shorthand</h4>');
+							document.write('		<input id = "shortname" type="text" >');
+							document.write('		</li>');
+
+							document.write('		<li>');
+							document.write('		<h4>Instructor</h4>');
+							document.write('		<input id = "instructor" type="text" >');
+							document.write('		</li>');
+
+							document.write('		</ul>');
+							//document.write('<h2><a id = "tryempty" href="javascript:void(0);" onclick="toCoursePage(this);">Prompt to add the course</a></h2>');
+
+							document.write('<input id = "submitprompt" type="submit" value="Prompt">');
+
+							$("#submitprompt").on( 'click', function () {
+							    $.ajax({
+							        type: 'post',
+							        url: 'course-addprompt.php',
+							        data: {
+							        	search0: $("#shortname").val(),
+							            search1: $("#instructor").val()
+							        },
+							        dataType: 'json',
+							        success: function( data ) {
+							            window.open('left-sidebar.html','_self');
+							            return false;
+							        }
+
+							    });
+							});
+
+							
+							
+							document.write('</section>');
+							document.write('</div>');
+							
+
+						}
 						
 						for (i = 0; i <= t.length; i++) {
 						s0 = (t[i]['name']);

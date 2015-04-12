@@ -90,37 +90,45 @@
 									}
 									
 								}
+								var c1 = window.opener.courseselected;
+
+
 								</script>
 							
 							<section class="boxcp">
 								<h3>Course Ratings</h3>
 
 									<section class="special box">
-									<section class = "boxotr" id = "arrat">1</section>
+									<section class = "boxotr" id = "ovrat01">1</section>
 									<h4>Overall Rating</h4>
 									</section>
 
 									<section class="special box">
-									<section class = "boxotr" id = "arrat">2</section>
+									<section class = "boxotr" id = "grrat01">2</section>
 									<h4>Grading</h4>
 									</section>
 
 									<section class="special box">
-									<section class = "boxotr" id = "arrat">3</section>
+									<section class = "boxotr" id = "arrat01">3</section>
 									<h4>Attendance</h4>
 									</section>
 
 									<section class="special box">
-									<section class = "boxotr" id = "arrat">4</section>
+									<section class = "boxotr" id = "inrat01">4</section>
 									<h4>Interest</h4>
 									</section>
 
 									<section class="special box">
-									<section class = "boxotr" id = "arrat">5</section>
+									<section class = "boxotr" id = "workrat01">5</section>
 									<h4>Workload</h4>
 									</section>
 
 									<SCRIPT Language="JavaScript">
+									document.getElementById('workrat01').innerHTML = Math.round(c1['work']);
+									document.getElementById('ovrat01').innerHTML = Math.round(c1['ov']);
+									document.getElementById('grrat01').innerHTML = Math.round(c1['gr']);
+									document.getElementById('arrat01').innerHTML = Math.round(c1['ar']);
+									document.getElementById('inrat01').innerHTML = Math.round(c1['interest']);
 									
 									</SCRIPT>
 
@@ -132,8 +140,8 @@
 						<div class="7u">
 							<section>
 
-								<h2>CSL333</h2>
-								<h3>Artificial Intelligence</h3>
+								<h2 id="coursenameshort">CSL333</h2>
+								<h3 id="coursename">Artificial Intelligence</h3>
 
 								<table>
 								  <tr>
@@ -143,10 +151,10 @@
 									<th>L &nbsp; T &nbsp; P</th>
 								  </tr>
 								  <tr>
-									<td>Mausam</td>
-									<td>M</td> 
-									<td>4.0</td>
-									<td>3 &nbsp; 0 &nbsp; 2</td>
+									<td id="instructorname">Mausam</td>
+									<td id="slot">M</td> 
+									<td id="credits">4.0</td>
+									<td id="ltp">3 &nbsp; 0 &nbsp; 2</td>
 								  </tr>
 								</table>
 
@@ -155,7 +163,7 @@
 								<br>
 
 								<h4>Course Content</h4>
-								<p>
+								<p id='content'>
 									Problem solving, search techniques, control strategies, game playing
 									(minimax), reasoning, knowledge representation through predicate
 									logic, rule-based systems, semantic nets, frames, conceptual
@@ -165,6 +173,16 @@
 									Neural computational models - Hopfield Nets, Boltzman machines.
 									PROLOG programming.
 								</p>
+
+								<SCRIPT Language="JavaScript">
+									document.getElementById('coursename').innerHTML = c1['name'];
+									document.getElementById('coursenameshort').innerHTML = c1['shortname'];
+									document.getElementById('instructorname').innerHTML = c1['instructor'];
+									document.getElementById('slot').innerHTML = c1['slot'];
+									document.getElementById('credits').innerHTML = c1['credits'];
+									document.getElementById('ltp').innerHTML = c1['L']+"&nbsp; &nbsp;"+c1['T']+"&nbsp; &nbsp;"+c1['P'];
+									document.getElementById('content').innerHTML = c1['content'];
+								</SCRIPT>
 
 								<h4>Reviews</h4>
 								<section class="special box">
@@ -242,25 +260,63 @@
 								
 									<SCRIPT Language="JavaScript">
 									<!-- 
+									function writereview(data){
+										for (i = 0; i < c1['revnum']; i++) {
+
+										$("#reviewname"+i).html(data[i]['UID']);
+										$("#reviewcontent"+i).html(data[i]['review']);
+										$("#reviewar"+i).html(data[i]['ar']);
+										$("#reviewgr"+i).html(data[i]['gr']);
+										$("#reviewov"+i).html(data[i]['ov']);
+										$("#reviewwork"+i).html(data[i]['work']);
+										$("#reviewinterest"+i).html(data[i]['interest']);
+										$("#reviewup"+i).val(data[i]['likes']);
+										$("#reviewdown"+i).val(data[i]['dislikes']);
+										$("#reviewrep"+i).val(data[i]['report']);
+										colourotrating();
+										colourorating();
+									}
+									}
+									var rev;
+										$( window ).load(function() {
+											$.ajax({
+											type: 'post',
+											url: 'testpage3-reviews.php',
+											data: {
+												cid: c1['CID']
+											},
+											dataType: 'json',
+											success: function( data ) {
+												rev = data;
+												writereview(data);
+												return false;
+											}
+
+											});
+										});
+
+									colourotrating();
+									colourorating();
+									//c1['revnum']
 									
-									for (i = 0; i <= 7; i++) {
+									for (i = 0; i < c1['revnum']; i++) {
 										
 									document.write('<hr/>');
 
 									document.write('<div class="12u">');
 										document.write('<section class="boxnb">');
-											document.write('<h2>Feanor</h2>');
-											document.write('<p>Why O people of the Noldor, why should we longer serve the jealous Valar, who cannot keep us, not even their own ralm secure from their enemy. And though now he be their foe, are not they and he of one kin </p>')
+											document.write('<h2 id = "reviewname'+i+'"> hello </h2>');
+											document.write('<p id = "reviewcontent'+i+'">Why O people of the Noldor, why should we longer serve the jealous Valar, who cannot keep us, not even their own ralm secure from their enemy. And though now he be their foe, are not they and he of one kin </p>')
 										document.write('</section>');
 									document.write('</div>');
 
 									document.write('<div class="11u">');										
 										document.write('<section class="boxnb">');
-											document.write('<section class = "boxotr" id = "arrat">1</section>');
-											document.write('<section class = "boxotr" id = "grrat">2</section>');
-											document.write('<section class = "boxotr" id = "inrat">3</section>');
-											document.write('<section class = "boxotr" id = "worat">4</section>');
-											document.write('<section class = "boxor" id = "ovrat">5</section><br><br>');
+											document.write('<section title = "Interest Rating" class = "boxotr" id = "reviewinterest'+i+'">1</section>');
+											document.write('<section title = "Workload Rtaing" class = "boxotr" id = "reviewwork'+i+'">2</section>');
+											document.write('<section title = "Grading Rtaing" class = "boxotr" id = "reviewgr'+i+'">3</section>');
+											document.write('<section title = "Attendance Rtaing" class = "boxotr" id = "reviewar'+i+'">4</section>');
+											document.write('<section title = "Overall Rtaing" class = "boxor" id = "reviewov'+i+'">5</section><br><br>');
 										document.write('</section>');
 									document.write('</div>');
 
@@ -274,18 +330,23 @@
 									
 										
 										document.write('<button class="butt" type="button">Upvote</button>');
-										document.write('<input value="3" class="buttup" readonly>');
+										document.write('<input id = "reviewup'+i+'" value="3" class="buttup" readonly>');
 										document.write('<button class="butt" type="button">Downvote</button>');
-										document.write('<input value="3" class="buttup" readonly>');
+										document.write('<input id = "reviewdown'+i+'" value="3" class="buttup" readonly>');
 										document.write('<button class="butt" type="button">Report</button>');
-										document.write('<input value="3" class="buttup" readonly>');
+										document.write('<input id = "reviewrep'+i+'" value="3" class="buttup" readonly>');
 										
-										colourotrating();
-										colourorating();
 									
+
 
 									//-->
 									}
+									colourotrating();
+									colourorating();
+
+									// function colourGreen(ele)
+									// {	
+									// }
 									</SCRIPT>
 								</section>
 

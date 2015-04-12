@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>CRS - Search Results</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="js/jquery-ui.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+		</noscript>
+
+
+	</head>
+	<body id="top" >
+
+		<!-- Header -->
+			<header id="header" class="skel-layers-fixed">
+				<h1><a href="#">CRS</a></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="page2.html">Home</a></li>
+						<li><a href="left-sidebar.html">Left Sidebar</a></li>
+						<li><a href="right-sidebar.html">Right Sidebar</a></li>
+						<li><a href="no-sidebar.html">No Sidebar</a></li>
+						<li><a href="#" class="button special">Sign Up</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		
+		<section id="one" class="wrapper style1">
+				<header class="major">
+					<h2>Admin Login</h2>
+					<p>Enter Details Below to verify credentials</p>
+				</header>	
+							<div class="container">
+					<div class="row">
+
+						<div class="12u">
+						<section>
+							<div class = "row">
+							
+
+							<div class = '12u'>
+								<section class="special box">
+									<ul>
+										<li>
+									<h4>Course Name</h4>
+									<input id = "uid" type="text" >
+
+									<h4>Enter Password</h4>
+									<input id = "pass" type="password" >
+									</li>
+									</ul>
+									<br>
+									<h3>Security Questions</h3>
+									<h4>Which elven smith invented the Tengwar?</h4>
+									<input id = "a1" type="password" >
+									<br>
+									<h4>Who challenged Morgoth to a single duel?</h4>
+									<input id = "a2" type="password" >
+									<br>
+									<h4>Which elf is said to have the most noble bloodline?</h4>
+									<input id = "a3" type="password" >
+									<br>
+									<br>
+									<input id = "submitsearch" type="submit" value="Let me in">
+									<script>
+					    				$("#submitsearch").on( 'click', function () {
+									    $.ajax({
+									        type: 'post',
+									        url: 'admin-login.php',
+									        data: {
+									        	uid: $("#uid").val(),
+									            pass: $("#pass").val(),
+									            a1: $("#a1").val(),
+									            a2: $("#a2").val(),
+									            a3: $("#a3").val()
+									        },
+									        dataType: 'json',
+									        success: function( data ) {
+									        	if (data[0]=="Login Succesful"){
+									        		//window.alert(data[0]+data[1]+data[2]+data[3]+data[4]+data[5]);
+									        		window.open('adminprofile.html','_self');
+									        	}
+									            
+									            return false;
+									        }
+
+									    });
+									});
+									</script>
+
+								</section>
+							</div>
+
+							
+
+
+						</div>
+
+							
+							
+
+
+
+
+						<SCRIPT Language="JavaScript">
+
+						</SCRIPT>
+					</section>
+				</div>
+
+						
+
+						
+					
+					
+						
+					</div>
+				</div>
+
+			
+		
+			
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+						
+					<ul class="copyright">
+						<li>&copy; CRS. All rights reserved.</li>
+						<li><a href="http://templated.co">About</a></li>
+						<li><a href="http://templated.co">Blog</a></li>
+						<li><a href="http://templated.co">Contact Us</a></li>
+					</ul>
+				</div>
+			</footer>
+
+	</body>
+</html>

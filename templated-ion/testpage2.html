@@ -270,7 +270,7 @@
 								<h4>Sort by: </h4>
 
 																
-								<select onchange="showUser(this.value)">
+								<select class="sortfilter" id = "f1">
 								  <option value="ov">Overall Rating</option>
 								  <option value="ar">Attendance</option>
 								  <option value="gr">Grading</option>
@@ -280,8 +280,8 @@
 
 								<br>
 
-								<form>
-								<input type="radio" name="sex" value="Increasing">Increasing<br>
+								<form class="sortfilter" id = "f2">
+								<input type="radio" name="sex" value="Increasing" checked = "checked">Increasing<br>
 								<input type="radio" name="sex" value="Decreasing">Decreasing
 								<br>
 								<br>
@@ -289,10 +289,10 @@
 
 								<h4>Filter by: </h4>
 								<h5>Instructor</h5>
-								<input type="text" name="fname"><br>
+								<input class="sortfilter" id = "f3" type="text" name="fname"><br>
 								
 								<h5>Department</h5>
-								<select>
+								<select class="sortfilter" id = "f4">
 								  <option value="volvo">CSL</option>
 								  <option value="volvo">ASL</option>
 								  <option value="saab">RDL</option>
@@ -302,13 +302,12 @@
 								<br>
 								<h5>Credits</h5>
 								<h6> &nbsp;  &nbsp; &nbsp; &nbsp; min &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; max &nbsp;  &nbsp; &nbsp; </h6>
-								<input type="text" name="mincredits">
-								<input type="text" name="maxcredits">
+								<input class="sortfilter" id = "f5" type="text" name="mincredits">
+								<input class="sortfilter" id = "f6" type="text" name="maxcredits">
 								<h5>&nbsp;</h5>
 								<h5>&nbsp;</h5>
 								<h5>Slot</h5>
-								<input type="text" name="fname"><br>
-								<input type="submit" value="Submit">
+								<input class="sortfilter" id = "f7" type="text" name="fname"><br>
 						</form>
 
 

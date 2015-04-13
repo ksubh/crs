@@ -26,21 +26,21 @@
 			<header id="header" class="skel-layers-fixed">
 				<h1><a href="#">CRS</a></h1>
 				<nav id="nav">
-					<!-- <ul>
+					<ul>
 						<li><a href="page2.html">Home</a></li>
 						<li><a href="left-sidebar.html">Left Sidebar</a></li>
 						<li><a href="right-sidebar.html">Right Sidebar</a></li>
 						<li><a href="no-sidebar.html">No Sidebar</a></li>
-						<li><a href="#" class="button special">Sign Up</a></li>
-					</ul> -->
+						<!-- <li><a href="#" class="button special">Sign Up</a></li> -->
+					</ul>
 				</nav>
 			</header>
 
 		
 		<section id="one" class="wrapper style1">
 				<header class="major">
-					<h2>Add A Course</h2>
-					<p>Enter course details below</p>
+					<h2>Admin Login</h2>
+					<p>Enter Details Below to verify credentials</p>
 				</header>	
 							<div class="container">
 					<div class="row">
@@ -50,76 +50,18 @@
 							<div class = "row">
 							
 
-							<div class = '12u'>
+							<div class = '8u'>
 								<section class="special box">
-
-
-									<ul class="actions">
-									<li>
-									<h4>Course Shorthand</h4>
-									<input id = "shortname" type="text" >
-									</li>
-									</ul>
-
-									<ul class="actions">
-									<li>
-									<h4>Instructor</h4>
-									<input id = "instructor" type="text" >
-									</li>
-
-									<li>
-									<h4>Course Name</h4>
-									<input id = "name" type="text" >
-									</li>
-									</ul>
-
-									<ul class="actions">
-									<li>
-									<h4>Lecture Hours</h4>
-									<input id = "L" type="text" >
-									</li>
-
-									<li>
-									<h4>Tutorial Hours</h4>
-									<input id = "T" type="text" >
-									</li>
-
-									<li>
-									<h4>Practical Hours</h4>
-									<input id = "P" type="text" >
-									</li>
-									</ul>
-
-									<ul class="actions">
-									<li>
-									<h4>Credits</h4>
-									<input id = "credits" type="text" >
-									</li>
-
-									<li>
-									<h4>Slot</h4>
-									<input id = "slot" type="text" >
-									</li>
-
-									</ul>
-
-									
-									<h4>Course Content</h4>
-									<textarea id="content"></textarea>
-
-									<script>
-										var shortname = window.opener.currentcourse;
-										var instructor = window.opener.currentinstr;
-										window.opener.close();
-										document.getElementById('shortname').value = shortname;
-										document.getElementById('instructor').value = instructor;
-									</script>
-									
-
+									<h4>Enter User ID</h4>
+									<input id = "uid" type="text" >
+									<br>
+									<h4>Enter Password</h4>
+									<input id = "pass" type="password" >
+									<br>
 									
 									<br>
 									<br>
-									<input id = "submitsearch" type="submit" value="Add this Course">
+									<input id = "submitsearch" type="submit" value="Let me in">
 									<script>
 									$( window ).load(function() {
 									    $.ajax({
@@ -131,9 +73,9 @@
 									        },
 									        dataType: 'json',
 									        success: function( data ) {
-									        	if (data[0]=="You are not logged in"){
+									        	if (data[0]=="You are already logged in"){
 									        		window.alert (data[0]);
-									        		window.open('adminloginform.html','_self')
+									        		window.open('newfiletesting.html','_self')
 									        	}
 									        	
 									        	return false;
@@ -144,31 +86,28 @@
 					    				$("#submitsearch").on( 'click', function () {
 									    $.ajax({
 									        type: 'post',
-									        url: 'add-course.php',
+									        url: 'loginphp.php',
 									        data: {
-									        	shortname: $("#shortname").val(),
-									        	instructor: $("#instructor").val(),
-									        	name: $("#name").val(),
-									        	L: $("#L").val(),
-									        	T: $("#T").val(),
-									        	P: $("#P").val(),
-									        	credits: $("#credits").val(),
-									        	content: $("#content").val(),
-									        	slot: $("#slot").val()
-									        										            
+									        	search0: $("#uid").val(),
+									            search1: $("#pass").val(),
+									            
 									        },
 									        dataType: 'json',
 									        success: function( data ) {
-									        	if (data[0]=="Successfully Added the Course"){
-									        		window.open('promptaddcourse.html','_self');
+									        	if (data[0]=="You are already logged in"){
+									        		window.alert (data[0]);
+									        		window.open('newfiletesting.html','_self')
+									        	}
+									        	else if (data[0]=="You are now logged in"){
+									        		window.alert (data[0]);
+									        		window.open('newfiletesting.html','_self')
 									        	}
 									        	else{
-									        		window.alert("The Course Exists")
+									        		window.alert (data[0]);
+									        		
 									        	}
-									            
-									            return false;
-									        }
-
+									        	return false;
+											}
 									    });
 									});
 									</script>
@@ -176,20 +115,15 @@
 								</section>
 							</div>
 
-							
+							<div class = '4u'>
+								<section class="special box">
+									<section class="image fit"><img src="images/glor.jpg" alt="" /></section>
+								</section>
+							</div>
 
 
 						</div>
 
-							
-							
-
-
-
-
-						<SCRIPT Language="JavaScript">
-
-						</SCRIPT>
 					</section>
 				</div>
 

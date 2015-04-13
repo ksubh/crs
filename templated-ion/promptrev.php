@@ -25,7 +25,7 @@ $sqls = "select COUNT(*) as serious from reviews where report > 15;";
 $sqlm = "select COUNT(*) as medium from reviews where report > 10 AND report<=15;";
 $sqll = "select COUNT(*) as low from reviews where report > 5 AND report<=10;";
 
-$sql = "select * from reviews where report > 5 order by report DESC;";
+$sql = "select * from reviews order by report DESC;";
 
 $results = mysqli_query($link,$sqls);
 $resultm = mysqli_query($link,$sqlm);

@@ -39,27 +39,23 @@
 			<script>
 
 			$("#logoutbut").on( 'click', function () {
-				$.ajax({
-				type: 'post',
-				url: 'logout.php',
-				data: {
-		        	search0: "ty",
-		            
-		        },
-				dataType: 'json',
-				success: function( data ) {
-					if (data[0]=="An Error Occured. Please try again"){
-						window.alert("An Error Occured. Please try again");
+			    $.ajax({
+			        type: 'post',
+			        url: 'logoutphp.php',
+			        data: {
+			        	search0: "ty"
+			            
+			        },
+			        dataType: 'json',
+			        success: function( data ) {
+			        	if (data[0]=="You are now logged out"){
+			        		window.alert (data[0]);
+			        		window.open('adminloginform.html','_self')
+			        	}
+			        	
+			        	return false;
 					}
-					
-					else{
-						window.open('adminloginform.html','_self');
-						
-					}
-					return false;
-				}
-
-				});
+			    });
 			});
 			</script>
 
@@ -137,31 +133,24 @@
 
 									
 									$( window ).load(function() {
-											$.ajax({
-											type: 'post',
-											url: 'checklogin.php',
-											data: {
-									        	search0: "ty",
+									    $.ajax({
+									        type: 'post',
+									        url: 'checkloginphp.php',
+									        data: {
+									        	search0: "ty"
 									            
 									        },
-											dataType: 'json',
-											success: function( data ) {
-												if (data[0]=="Multiple Admins Logged in"){
-													window.alert("Multiple Admins Logged in - All Logging Out");
-													window.open("adminloginform.html",'_self')
-												}
-												else if (data[0]=="No Admin Logged in"){
-													window.alert("You are not logged in.");
-													window.open('adminloginform.html','_self');
-												}
-												else{
-													window.alert("Welcome Admin");
-												}
-												return false;
+									        dataType: 'json',
+									        success: function( data ) {
+									        	if (data[0]=="You are not logged in"){
+									        		window.alert (data[0]);
+									        		window.open('adminloginform.html','_self')
+									        	}
+									        	
+									        	return false;
 											}
-
-											});
-										});
+									    });
+									});
 
 									var reviewdata;
 

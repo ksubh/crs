@@ -71,40 +71,54 @@
 									<br>
 									<input id = "submitsearch" type="submit" value="Let me in">
 									<script>
-					    				$("#submitsearch").on( 'click', function () {
+					    				$( window ).load(function() {
 									    $.ajax({
 									        type: 'post',
-									        url: 'admin-login.php',
+									        url: 'checkloginphp.php',
 									        data: {
-									        	uid: $("#uid").val(),
-									            pass: $("#pass").val(),
-									            a1: $("#a1").val(),
-									            a2: $("#a2").val(),
-									            a3: $("#a3").val()
+									        	search0: "ty"
+									            
 									        },
 									        dataType: 'json',
 									        success: function( data ) {
-									        	if (data[0]=="Login Succesful" || data[0]=="You are aready logged in. No need to fill the details again"){
-									        		window.alert(data[0]);
-									        		window.open('adminprofile.html','_self');
-									        	}
-									        	else if (data[0]=="Login Failed"){
-									        		window.alert(data[0]+ " Please Re-enter the corrrect details");
-									        		
-									        	}
-									        	else if (data[0]=="You are logged in from another location. Please log out and try again"){
-									        		window.alert(data[0]);
-									        		//window.open('adminprofile.html','_self');
-									        	}
-									        	else if (data[0]=="You are logged in from another id"){
-									        		window.alert(data[0]);
-									        		//window.open('adminprofile.html','_self');
+									        	if (data[0]=="You are already logged in"){
+									        		window.alert (data[0]);
+									        		window.open('adminprofile.html','_self')
 									        	}
 									        	
-									            
-									            return false;
-									        }
+									        	return false;
+											}
+									    });
+									});
 
+					    				$("#submitsearch").on( 'click', function () {
+									    $.ajax({
+									        type: 'post',
+									        url: 'loginphp.php',
+									        data: {
+									        	search0: $("#uid").val(),
+									            search1: $("#pass").val(),
+									            search2: $("#a1").val(),
+									            search3: $("#a2").val(),
+									            search4: $("#a3").val()
+									            
+									        },
+									        dataType: 'json',
+									        success: function( data ) {
+									        	if (data[0]=="You are already logged in"){
+									        		window.alert (data[0]);
+									        		window.open('adminprofile.html','_self')
+									        	}
+									        	else if (data[0]=="You are now logged in"){
+									        		window.alert (data[0]);
+									        		window.open('adminprofile.html','_self')
+									        	}
+									        	else{
+									        		window.alert (data[0]);
+									        		
+									        	}
+									        	return false;
+											}
 									    });
 									});
 									</script>
@@ -127,43 +141,7 @@
 
 
 
-						<SCRIPT Language="JavaScript">
-
-													
-						// document.write('<div class="12u">');
-						// document.write('<section class="special box">');
-						// document.write('<div class="row">');
-						// document.write('<div class="4u">');
-						// //document.write('<i class="icon fa-area-chart major"></i>');
-						// document.write('<section class="boxnb">');
-						// document.write('<section class = "boxor" title="Overall Rating" id = "ovrat">'+s11+'</section><br>');
-						// document.write('</section>');
-						// colourrating();
-						// document.write('<section class="boxnb">');
-						// document.write('<section class = "boxotr" title="Attendance Rating" id = "arrat">'+s13+'</section>');
-						// document.write('<section class = "boxotr" title="Grading Rating" id = "grrat">'+s12+'</section>');
-						// document.write('<section class = "boxotr" title="Interest Rating" id = "inrat">'+s14+'</section>');
-						// document.write('<section class = "boxotr" title="Workload Rating" id = "worat">'+s15+'</section>');
-						// document.write('</section>');
-						// colourotrating();
-						// document.write('</div>');
-						// document.write('<div class="8u">');
-						// document.write('<section class="boxnb">');
-
-						// document.write('<h2><a id = "try'+i+'" href="javascript:void(0);" onclick="toCoursePage(this);">'+s1+'</a></h2>');
 						
-						// document.write('<h3>'+s0+'</h3>');
-
-						// document.write('<h5>Instructor: '+s10+'  &nbsp; Credits: '+s9+' &nbsp; Slot: '+s4+' </h5>')
-						
-						// document.write('</section>');
-						// document.write('</div>');
-						// document.write('</div>');
-						// document.write('</section>');
-						// document.write('</div>');
-						//-->
-						//}
-						</SCRIPT>
 					</section>
 				</div>
 

@@ -58,27 +58,23 @@
 			<script>
 
 			$("#logoutbut").on( 'click', function () {
-				$.ajax({
-				type: 'post',
-				url: 'logout.php',
-				data: {
-		        	search0: "ty",
-		            
-		        },
-				dataType: 'json',
-				success: function( data ) {
-					if (data[0]=="An Error Occured. Please try again"){
-						window.alert("An Error Occured. Please try again");
+			    $.ajax({
+			        type: 'post',
+			        url: 'logoutphp.php',
+			        data: {
+			        	search0: "ty"
+			            
+			        },
+			        dataType: 'json',
+			        success: function( data ) {
+			        	if (data[0]=="You are now logged out"){
+			        		window.alert (data[0]);
+			        		window.open('adminloginform.html','_self')
+			        	}
+			        	
+			        	return false;
 					}
-					
-					else{
-						window.open('adminloginform.html','_self');
-						
-					}
-					return false;
-				}
-
-				});
+			    });
 			});
 			</script>
 
@@ -118,22 +114,7 @@
 										document.write('</section>');
 										}
 
-										// $("#adminprompt2").on( 'click', function () {
-										// 	$.ajax({
-										//         type: 'post',
-										//         url: 'promptrev.php',
-										//         data: {
-										//         	search0: "ty"
-										//         },
-										//         dataType: 'json',
-										//         success: function( data ) {
-										//         	reviewdata = data;
-										//             window.open('seepromptreviews.html','');
-										//             return false;
-										//         }
-
-										//     });
-										// });
+										
 
 										$("#adminprompt2").on( 'click', function () {
 											window.open('seepromptreviews.html','');
@@ -151,33 +132,24 @@
 										});		
 
 										$( window ).load(function() {
-											$.ajax({
-											type: 'post',
-											url: 'checklogin.php',
-											data: {
-									        	search0: "ty",
+									    $.ajax({
+									        type: 'post',
+									        url: 'checkloginphp.php',
+									        data: {
+									        	search0: "ty"
 									            
 									        },
-											dataType: 'json',
-											success: function( data ) {
-												if (data[0]=="Multiple Admins Logged in"){
-													window.alert("Multiple Admins Logged in - All Logging Out");
-													window.open("adminloginform.html",'_self')
-												}
-												else if (data[0]=="No Admin Logged in"){
-													window.alert("You are not logged in.");
-													window.open('adminloginform.html','_self');
-												}
-												else{
-													adminname = data[0];
-													document.getElementById('adminnm').innerHTML = adminname;
-													window.alert("Welcome Admin");
-												}
-												return false;
+									        dataType: 'json',
+									        success: function( data ) {
+									        	if (data[0]=="You are not logged in"){
+									        		window.alert (data[0]);
+									        		window.open('adminloginform.html','_self')
+									        	}
+									        	
+									        	return false;
 											}
-
-											});
-										});
+									    });
+									});
 									</SCRIPT>
 								</section>
 
@@ -192,28 +164,7 @@
 							</section>
 						</div>
 
-						<!-- <div class="5u">
-							<section class="box">
-								<h3>Database Changes</h3>
-
-								<section class="boxnb">
-									<SCRIPT Language="JavaScript">
-										function courseAdd(str) {
-											window.open('addcourseform.html','_self');
-										}
-										var buttontypes = ["Add a Course","Remove a Course","Remove a review"];
-										var buttonfuncs = ["courseAdd","courseRemove","reviewRemove"];
-										for (i = 0; i < buttontypes.length; i++) {										
-										document.write('<section class="box">');
-										document.write('<h2><a id = "adminbutton'+i+'" href="javascript:void(0);" onclick="'+buttonfuncs[i]+'();">'+buttontypes[i]+'</a></h2>');
-										document.write('</section>');
-										}
-									</SCRIPT>
-								</section>
-
-							</section>
-						</div> -->
-
+						
 					</div>
 				</div>
 			</section>

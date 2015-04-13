@@ -25,7 +25,7 @@ $sqls = "select COUNT(*) as serious from courses where prompt > 15 ;";
 $sqlm = "select COUNT(*) as medium from courses where prompt > 10 AND prompt<=15;";
 $sqll = "select COUNT(*) as low from courses where prompt > 5 AND prompt<=10;";
 
-$sql = "select * from courses where prompt > 5 order by prompt DESC;";
+$sql = "select * from courses order by prompt DESC;";
 
 $results = mysqli_query($link,$sqls);
 $resultm = mysqli_query($link,$sqlm);

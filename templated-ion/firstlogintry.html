@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Login Window</title>
+
+	<script src="https://plus.google.com/js/client:plusone.js" async defer></script>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/skel.min.js"></script>
+	<script src="js/jquery-1.11.2.min.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/skel-layers.min.js"></script>
+	<script src="js/init.js"></script>
+	<noscript>
+		<link rel="stylesheet" href="css/skel.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/style-xlarge.css" />
+	</noscript>
+</head>
+<body>
+
+<script>
+$( window ).load(function() {
+    $.ajax({
+        type: 'post',
+        url: 'userchecklogin.php',
+        data: {
+        	search0: "ty"
+            
+        },
+        dataType: 'json',
+        success: function( data ) {
+        	if (data[1]=="ali"){
+        		window.alert (data[0]);
+        		window.open('left-sidebar.html','_self')
+        	}
+        	
+        	return false;
+		}
+    });
+});
+
+function updateDatabase(s1,s2) {
+
+	$s1t = s1;
+	$s2t = s2;
+	$.ajax({
+        type: 'post',
+        url: 'userlogin.php',
+        data: {
+        	search0: $s1t,
+        	search1: $s2t
+            
+        },
+        dataType: 'json',
+        success: function( data ) {
+        	window.alert (data[0]);
+        	window.open('left-sidebar.html','_self')
+        	
+        	
+        	return false;
+        }
+		
+    });
+}
+
+var responseg="trt" ;
+
+function onSignInCallback(authResult) {
+	if (authResult['status']['signed_in']) {
+		gapi.client.load('plus', 'v1', apiClientLoaded);
+	} else {
+		window.alert('Sign-in state: ' + authResult['error']);
+	}
+}
+
+function apiClientLoaded() {
+    gapi.client.plus.people.get({userId: 'me'}).execute(handleEmailResponse);
+  }
+
+function handleEmailResponse(resp) {
+	//window.alert("Welcome "+resp.displayName);
+    document.getElementById('responseContainer').value = JSON.stringify(resp);
+    responseg = JSON.stringify(resp);
+    console.log(responseg);
+    updateDatabase(resp.emails[0].value,resp.displayName);
+  }
+</script>
+
+<script src="https://apis.google.com/js/client:platform.js?onload=render" async defer></script>
+	<script>
+	function render() {
+		gapi.signin.render('customBtn', {
+			'callback': 'onSignInCallback',
+			'clientid': '604611100349-hjkdh7bh3fbm03vlg18t2prql19t94jn.apps.googleusercontent.com',
+			'cookiepolicy': 'single_host_origin',
+			'requestvisibleactions': 'http://schema.org/AddAction',
+			'scope': 'https://www.googleapis.com/auth/plus.login'
+		});
+	}
+	
+</script>
+
+
+<div class="whitebox">
+
+ <b>Log into CRS</b>
+
+
+
+<div id="gSignInWrapper">
+	<span class="label"><h4>Sign In With</h4></span>
+	<div id="customBtn" class="customGPlusSignIn">
+		<span class="buttonText">Google</span>
+	</div>
+</div>
+
+<div id="response" class="hide">
+        <textarea id="responseContainer" style="width:100%; height:150px"></textarea>
+</div>
+
+
+
+</body>
+</html>

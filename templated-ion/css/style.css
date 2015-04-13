@@ -639,6 +639,33 @@
 	   color:white;
 	}
 
+	#customBtn {
+      background-color: #192024;
+		border-radius: 6px;
+		border: 0;
+		color: #ffffff !important;
+		cursor: pointer;
+		display: inline-block;
+		font-weight: 300;
+		text-transform: uppercase;
+		letter-spacing: 0.125em;
+		font-size: 1.1em;
+		height: 2.85em;
+		line-height: 2.85em;
+		padding: 0 1em;
+		text-align: center;
+		text-decoration: none;
+		white-space: nowrap;
+		text-indent: 0.25em;
+    }
+    #customBtn:hover {
+      background: #232d33;
+      cursor: hand;
+    }
+
+
+	
+
 	.boxns {
 		border-radius: 12px;
 		border: solid 2px rgba(144, 144, 144, 0.25);

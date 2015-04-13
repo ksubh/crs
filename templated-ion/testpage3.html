@@ -32,10 +32,32 @@
 						<li><a href="left-sidebar.html">Left Sidebar</a></li>
 						<li><a href="right-sidebar.html">Right Sidebar</a></li>
 						<li><a href="no-sidebar.html">No Sidebar</a></li>
-						<li><a href="#" class="button special">Sign Up</a></li>
+						<li><a href="javascript:void(0);" id= "logoutbut" class="button special">Log Out</a></li>
 					</ul>
 				</nav>
 			</header>
+			<script>
+
+			$("#logoutbut").on( 'click', function () {
+			    $.ajax({
+			        type: 'post',
+			        url: 'userlogout.php',
+			        data: {
+			        	search0: "ty"
+			            
+			        },
+			        dataType: 'json',
+			        success: function( data ) {
+			        	if (data[0]=="You are now logged out"){
+			        		window.alert (data[0]);
+			        		window.open('firstlogintry.html','_self')
+			        	}
+			        	
+			        	return false;
+					}
+			    });
+			});
+			</script>
 
 		<!-- Main -->
 			<section id="main" class="wrapper style1">
@@ -47,7 +69,27 @@
 					<div class="row">
 						<div class="4u">
 
-							<SCRIPT Language="JavaScript">
+							<SCRIPT>
+							$( window ).load(function() {
+							    $.ajax({
+							        type: 'post',
+							        url: 'userchecklogin.php',
+							        data: {
+							        	search0: "ty"
+							            
+							        },
+							        dataType: 'json',
+							        success: function( data ) {
+							        	if (data[1]=="nli"){
+							        		window.alert (data[0]);
+							        		window.open('firstlogintry.html','_self')
+							        	}
+							        							        	
+							        	return false;
+									}
+							    });
+							});
+
 
 							function getcoloury(num)
 								{ num   = Math.round(num);

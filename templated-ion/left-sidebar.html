@@ -28,10 +28,33 @@
 						<li><a href="left-sidebar.html">Left Sidebar</a></li>
 						<li><a href="right-sidebar.html">Right Sidebar</a></li>
 						<li><a href="no-sidebar.html">No Sidebar</a></li>
-						<li><a href="#" class="button special">Sign Up</a></li>
+						<li><a href="javascript:void(0);" id= "logoutbut" class="button special">Log Out</a></li>
 					</ul>
 				</nav>
 			</header>
+			<script>
+
+			$("#logoutbut").on( 'click', function () {
+			    $.ajax({
+			        type: 'post',
+			        url: 'userlogout.php',
+			        data: {
+			        	search0: "ty"
+			            
+			        },
+			        dataType: 'json',
+			        success: function( data ) {
+			        	if (data[0]=="You are now logged out"){
+			        		window.alert (data[0]);
+			        		window.open('firstlogintry.html','_self')
+			        	}
+			        	
+			        	return false;
+					}
+			    });
+			});
+			</script>
+
 
 		<!-- Banner -->
 			<section id="banner">
@@ -72,6 +95,25 @@
 						var t2;
 						var t3;
 						var t4;
+						$( window ).load(function() {
+						    $.ajax({
+						        type: 'post',
+						        url: 'userchecklogin.php',
+						        data: {
+						        	search0: "ty"
+						            
+						        },
+						        dataType: 'json',
+						        success: function( data ) {
+						        	if (data[1]=="nli"){
+						        		window.alert (data[0]);
+						        		window.open('firstlogintry.html','_self')
+						        	}
+						        							        	
+						        	return false;
+								}
+						    });
+						});
 						
 						
 					    $("#submitsearch").on( 'click', function () {

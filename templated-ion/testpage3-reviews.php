@@ -14,8 +14,8 @@ $stack = array("orange");
 //$sql = "select * from reviews where CID = ".$s0." order by likes;";
 
 $sql = "select reviews.UID as UID,reviews.CID as CID, reviews.review as review, reviews.likes as likes, reviews.report as report, 
-reviews.dislikes as dislikes, userpage.UID as userUID , userpage.name as username
-from reviews inner join userpage on reviews.UID = userpage.UID WHERE 
+reviews.dislikes as dislikes, user.UID as userUID , user.name as username
+from reviews inner join user on reviews.UID = user.UID WHERE 
 CID = ".$s0." order by reviews.likes;";
 
 
@@ -23,7 +23,7 @@ $result = mysqli_query($link,$sql);
 
 $rows = array();
 while($r = mysqli_fetch_assoc($result)) {
-	$sql2 = "select * from rating where CID = ".$s0." AND UID=".$r['UID'].";";
+	$sql2 = "select * from rating where CID = ".$s0." AND UID=".$r['userUID'].";";
 	$result2 = mysqli_query($link,$sql2);
 	$r2 = mysqli_fetch_assoc($result2);
 	$r['ov']=$r2['ov'];

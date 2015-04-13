@@ -134,7 +134,7 @@
 								}
 								//var c1 = window.opener.courseselected;
 								var c1 = JSON.parse(localStorage.getItem("cs"));
-								
+
 
 								</script>
 							
@@ -290,15 +290,17 @@
 
 											}
 										</script>
+
 										<SCRIPT Language="JavaScript">
 											<!-- 
-											
+											document.write('<div class = "buttonSlider">')
 											document.write('<section class="boxrto">');
 												document.write('<h4>Overall Rating</h4>');
-
+												document.write('<h4>1  &nbsp;  2 &nbsp; 3 &nbsp; 4 &nbsp; 5</h4>');
+												
 											for (i = 1; i <= 5; i++) {
 											//document.write('<button class="buttre" type="button" id = "'+i+'" onclick = "colourGreen(this)">'+i+'</button>');
-											document.write('<input class="buttre" name="radiobut" onClick= "colourGreen(this)" type="radio" id = "'+i+'"></input>');
+											document.write('<input class="buttre" name="radiobut" type="radio" id = "'+i+'"/>');
 											}
 											document.write('</section>');
 
@@ -307,6 +309,7 @@
 											for (j = 0; j <= 3; j++) {
 												document.write('<section class="boxrt">');
 												document.write('<h4>'+cars[j]+'</h4>');
+												document.write('<h4>1  &nbsp;  2 &nbsp; 3 &nbsp; 4 &nbsp; 5</h4>');
 
 											for (i = 1; i <= 5; i++) {
 											//document.write('<button class="buttre" type="button" id = "'+i+'" onclick = "colourGreen(this)">'+i+'</button>');
@@ -363,27 +366,12 @@
 											});
 										});
 
-									function writereview(data){
-										for (i = 0; i < c1['revnum']; i++) {
-
-										$("#reviewname"+i).html(data[i]['username']);
-										$("#reviewcontent"+i).html(data[i]['review']);
-										$("#reviewar"+i).html(data[i]['ar']);
-										$("#reviewgr"+i).html(data[i]['gr']);
-										$("#reviewov"+i).html(data[i]['ov']);
-										$("#reviewwork"+i).html(data[i]['work']);
-										$("#reviewinterest"+i).html(data[i]['interest']);
-										$("#reviewup"+i).val(data[i]['likes']);
-										$("#reviewdown"+i).val(data[i]['dislikes']);
-										$("#reviewrep"+i).val(data[i]['report']);
-										colourotrating();
-										colourorating();
-									}
-									}
 									var rev;
-										$( window ).load(function() {
+									var forup;
+										function forreview() {
 											$.ajax({
 											type: 'post',
+											async:false,
 											url: 'testpage3-reviews.php',
 											data: {
 												cid: c1['CID']
@@ -391,35 +379,38 @@
 											dataType: 'json',
 											success: function( data ) {
 												rev = data;
-												writereview(data);
+												forup = data;
+												//window.alert(JSON.stringify(rev));
 												return false;
 											}
 
 											});
-										});
+										}
 
+									forreview();
+									
 									colourotrating();
 									colourorating();
 									//c1['revnum']
 									
-									for (i = 0; i < c1['revnum']; i++) {
+									for (i = 0; i < rev.length; i++) {
 										
 									document.write('<hr/>');
 
 									document.write('<div class="12u">');
 										document.write('<section class="boxnb">');
-											document.write('<h2 id = "reviewname'+i+'"> hello </h2>');
-											document.write('<p id = "reviewcontent'+i+'">Why O people of the Noldor, why should we longer serve the jealous Valar, who cannot keep us, not even their own ralm secure from their enemy. And though now he be their foe, are not they and he of one kin </p>')
+											document.write('<h2 id = "reviewname'+i+'"> '+rev[i]['username']+' </h2>');
+											document.write('<p id = "reviewcontent'+i+'">'+rev[i]['review']+'</p>')
 										document.write('</section>');
 									document.write('</div>');
 
 									document.write('<div class="11u">');										
 										document.write('<section class="boxnb">');
-											document.write('<section title = "Interest Rating" class = "boxotr" id = "reviewinterest'+i+'">1</section>');
-											document.write('<section title = "Workload Rtaing" class = "boxotr" id = "reviewwork'+i+'">2</section>');
-											document.write('<section title = "Grading Rtaing" class = "boxotr" id = "reviewgr'+i+'">3</section>');
-											document.write('<section title = "Attendance Rtaing" class = "boxotr" id = "reviewar'+i+'">4</section>');
-											document.write('<section title = "Overall Rtaing" class = "boxor" id = "reviewov'+i+'">5</section><br><br>');
+											document.write('<section title = "Interest Rating" class = "boxotr" id = "reviewinterest'+i+'">'+rev[i]['interest']+'</section>');
+											document.write('<section title = "Workload Rtaing" class = "boxotr" id = "reviewwork'+i+'">'+rev[i]['work']+'</section>');
+											document.write('<section title = "Grading Rtaing" class = "boxotr" id = "reviewgr'+i+'">'+rev[i]['gr']+'</section>');
+											document.write('<section title = "Attendance Rtaing" class = "boxotr" id = "reviewar'+i+'">'+rev[i]['ar']+'</section>');
+											document.write('<section title = "Overall Rtaing" class = "boxor" id = "reviewov'+i+'">'+rev[i]['ov']+'</section><br><br>');
 										document.write('</section>');
 									document.write('</div>');
 
@@ -432,12 +423,75 @@
 
 									
 										
-										document.write('<button class="butt" type="button">Upvote</button>');
-										document.write('<input id = "reviewup'+i+'" value="3" class="buttup" readonly>');
-										document.write('<button class="butt" type="button">Downvote</button>');
-										document.write('<input id = "reviewdown'+i+'" value="3" class="buttup" readonly>');
-										document.write('<button class="butt" type="button">Report</button>');
-										document.write('<input id = "reviewrep'+i+'" value="3" class="buttup" readonly>');
+										document.write('<button id = "reviewupb'+i+'" class="butt" type="button">Upvote</button>');
+										document.write('<input id = "reviewup'+i+'" value="'+rev[i]['likes']+'" class="buttup" readonly>');
+										document.write('<button id = "reviewdownb'+i+'" class="butt" type="button">Downvote</button>');
+										document.write('<input id = "reviewdown'+i+'" value="'+rev[i]['dislikes']+'" class="buttup" readonly>');
+										document.write('<button id = "reviewrepb'+i+'" class="butt" type="button">Report</button>');
+										document.write('<input id = "reviewrep'+i+'" value="'+rev[i]['report']+'" class="buttup" readonly>');
+
+										var uidu = rev[i]['userUID']
+
+
+										$("#reviewupb"+i).on( 'click', function () {
+											$ud = uidu;
+											$.ajax({
+											type: 'post',
+											url: 'upvote.php',
+											data: {
+												cid: c1['CID'],
+												user: $ud
+
+											},
+											dataType: 'json',
+											success: function( data ) {
+												window.alert(JSON.stringify(data));
+												window.location.reload();
+												return false;
+											}
+
+											});
+										});
+
+										$("#reviewdownb"+i).on( 'click', function () {
+											$ud = uidu;
+											$.ajax({
+											type: 'post',
+											url: 'downvote.php',
+											data: {
+												cid: c1['CID'],
+												user: $ud
+
+											},
+											dataType: 'json',
+											success: function( data ) {
+												window.alert(JSON.stringify(data));
+												window.location.reload();
+												return false;
+											}
+
+											});
+										});
+
+										$("#reviewrepb"+i).on( 'click', function () {
+											$ud = uidu;
+											$.ajax({
+											type: 'post',
+											url: 'reportreview.php',
+											data: {
+												cid: c1['CID'],
+												user: $ud
+
+											},
+											dataType: 'json',
+											success: function( data ) {
+												window.alert(JSON.stringify(data));
+												window.location.reload();
+												return false;
+											}
+
+											});
+										});
 										
 									
 

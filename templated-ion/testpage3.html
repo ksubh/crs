@@ -134,7 +134,7 @@
 								}
 								//var c1 = window.opener.courseselected;
 								var c1 = JSON.parse(localStorage.getItem("cs"));
-
+								
 
 								</script>
 							
@@ -277,7 +277,8 @@
 											function colourGreen(ele)
 											{
 												idr = ele.id;
-												ele.style.backgroundColor=getcolour(idr);
+												var tery = getcolour(idr);
+												ele.style.background=tery;
 
 											}
 
@@ -296,18 +297,20 @@
 												document.write('<h4>Overall Rating</h4>');
 
 											for (i = 1; i <= 5; i++) {
-											document.write('<button class="buttre" type="button" id = "'+i+'"" onclick = "colourGreen(this)">'+i+'</button>');
+											//document.write('<button class="buttre" type="button" id = "'+i+'" onclick = "colourGreen(this)">'+i+'</button>');
+											document.write('<input class="buttre" name="radiobut" onClick= "colourGreen(this)" type="radio" id = "'+i+'"></input>');
 											}
 											document.write('</section>');
 
-
+											var cars = ["Grading", "Interest", "WorkLoad","Attendance"];
 											document.write('<div class="row">');
 											for (j = 0; j <= 3; j++) {
 												document.write('<section class="boxrt">');
-												document.write('<h4>Grdaing</h4>');
+												document.write('<h4>'+cars[j]+'</h4>');
 
 											for (i = 1; i <= 5; i++) {
-											document.write('<button class="buttre" type="button" id = "'+i+'"" onclick = "colourGreen(this)">'+i+'</button>');
+											//document.write('<button class="buttre" type="button" id = "'+i+'" onclick = "colourGreen(this)">'+i+'</button>');
+											document.write('<input class="buttre" name="'+cars[j]+'" type="radio" id = "'+i+'">');
 											}
 											document.write('</section>');
 											}
@@ -321,11 +324,45 @@
 										changetextcolor();
 										</SCRIPT>
 										<br>
-										<input type="submit" value="Submit">
+										<input id="revsubmit" type="submit" value="Submit">
 									</section>
 								
 									<SCRIPT Language="JavaScript">
 									<!-- 
+
+									function getcheckedvalue(v1){
+										var x = document.getElementsByName(v1);
+										var i;
+										for (i = 0; i < x.length; i++) {
+										    if (x[i].checked == true) {
+										        return x[i].id;
+										    }
+										}
+									}
+									$("#revsubmit").on( 'click', function () {
+											$.ajax({
+											type: 'post',
+											url: 'addreviews.php',
+											data: {
+												ov: getcheckedvalue("radiobut"),
+												gr: getcheckedvalue("Grading"),
+												inte: getcheckedvalue("Interest"),
+												work: getcheckedvalue("WorkLoad"),
+												ar: getcheckedvalue("Attendance"),
+												rev: $("#addreview").val(),
+												cid: c1['CID']
+
+											},
+											dataType: 'json',
+											success: function( data ) {
+												window.alert(JSON.stringify(data));
+												window.location.reload();
+												return false;
+											}
+
+											});
+										});
+
 									function writereview(data){
 										for (i = 0; i < c1['revnum']; i++) {
 

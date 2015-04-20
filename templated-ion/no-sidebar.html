@@ -43,7 +43,7 @@
 	<body id="top">
 
 		<!-- Header -->
-			<header id="header" class="skel-layers-fixed">
+		<header id="header" class="skel-layers-fixed">
 				<h1><a href="#">Ion</a></h1>
 				<nav id="nav">
 					<ul>
@@ -51,39 +51,107 @@
 						<li><a href="left-sidebar.html">Left Sidebar</a></li>
 						<li><a href="right-sidebar.html">Right Sidebar</a></li>
 						<li><a href="no-sidebar.html">No Sidebar</a></li>
-						<li><a href="#" class="button special">Sign Up</a></li>
+						<li><a href="javascript:void(0);" id= "logoutbut" class="button special">Log Out</a></li>
 					</ul>
 				</nav>
 			</header>
+			<script>
+
+			$("#logoutbut").on( 'click', function () {
+			    $.ajax({
+			        type: 'post',
+			        url: 'userlogout.php',
+			        data: {
+			        	search0: "ty"
+			            
+			        },
+			        dataType: 'json',
+			        success: function( data ) {
+			        	if (data[0]=="You are now logged out"){
+			        		window.alert (data[0]);
+			        		window.open('firstlogintry.html','_self')
+			        	}
+			        	
+			        	return false;
+					}
+			    });
+			});
+			</script>
 
 		<!-- Main -->
 			<section id="main" class="wrapper style1">
 				<header class="major">
-					<h2>User Profile</h2>
-					<p>Contains User Details</p>
+					<h2>Admin Profile</h2>
+					<p>Contains Admin Details</p>
 				</header>
 				<div class="container">
 					<div class="row">
 
 						<div class="3u">
 							<section class="boxcp">
-								<h3>Turin Turambar</h3>
+								<h3 id="adminnm">Saleha Iqbal Hussain</h3>
+								<?php  
+									// session_start();  
+									// echo $_SESSION["name"]; 
+									echo "hello";
+									?>
 								<section class="image fit"><img src="images/pic02.jpg" alt="" /></section>
 							</section>
 						</div>
 
-						<div class="4u">
+						<div class="5u">
 							<section class="box">
-								<h3>Courses Recommended</h3>
+								<h3>My Content</h3>
 
 								<section class="boxnb">
 									<SCRIPT Language="JavaScript">
-										for (i = 0; i <= 3; i++) {										
+										var adminname;
+										var prompt1;
+										var reviewdata;
+
+										var buttontypes = ["My Courses","My reviews"];
+										//var buttonfuncs = ["courseAddPrompt","courseRemovePrompt","reviewRemovePrompt"];
+
+
+										for (i = 0; i < buttontypes.length; i++) {										
 										document.write('<section class="box">');
-										document.write('<h2>Col774</h2>');
-										document.write('<h3>Machine Learning</h3>');
+										document.write('<h2><a id = "adminprompt'+i+'" href="javascript:void(0);">'+buttontypes[i]+'</a></h2>');
 										document.write('</section>');
 										}
+
+										
+
+										$("#adminprompt0").on( 'click', function () {
+											window.open('seemycourses.html','_self');
+										    
+										});
+
+										$("#adminprompt1").on( 'click', function () {
+											window.open('seemyreviews.html','');
+										    
+										});	
+
+												
+
+										$( window ).load(function() {
+										    $.ajax({
+										        type: 'post',
+										        url: 'userchecklogin.php',
+										        data: {
+										        	search0: "ty"
+										            
+										        },
+										        dataType: 'json',
+										        success: function( data ) {
+										        	if (data[1]=="nli"){
+										        		window.alert (data[0]);
+										        		window.open('firstlogintry.html','_self')
+										        	}
+
+										        	return false;
+												}
+										    });
+										});
 									</SCRIPT>
 								</section>
 
@@ -91,23 +159,14 @@
 							
 						</div>
 
+
 						<div class="4u">
-							<section class="box">
-								<h3>Profiles Recommended</h3>
-
-								<section class="boxnb">
-									<SCRIPT Language="JavaScript">
-										for (i = 0; i <= 3; i++) {										
-										document.write('<section class="box">');
-										document.write('<h2>Galadriel</h2>');
-										document.write('</section>');
-										}
-									</SCRIPT>
-								</section>
-
+							<section class="boxcp">
+								<h3>See Recommended Courses</h3>
 							</section>
 						</div>
 
+						
 					</div>
 				</div>
 			</section>

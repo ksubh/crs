@@ -83,7 +83,7 @@ function apiClientLoaded() {
 
 function handleEmailResponse(resp) {
 	//window.alert("Welcome "+resp.displayName);
-    document.getElementById('responseContainer').value = JSON.stringify(resp);
+    //document.getElementById('responseContainer').value = JSON.stringify(resp);
     responseg = JSON.stringify(resp);
     console.log(responseg);
     updateDatabase(resp.emails[0].value,resp.displayName);
@@ -105,6 +105,22 @@ function handleEmailResponse(resp) {
 </script>
 
 
+<header id="header" class="skel-layers-fixed">
+				<h1><a href="#">CRS</a></h1>
+				<nav id="nav">
+					
+				</nav>
+			</header>
+
+<section id="main" class="wrapper style1">
+	<div class="container">
+					<div class="row">
+						<div class="9u">
+						<section class="image fit"><img src="images/courses.jpg" alt="" /></section>
+					</div>
+
+						<div class="3u">
+
 <div class="whitebox">
 
  <b>Log into CRS</b>
@@ -118,11 +134,14 @@ function handleEmailResponse(resp) {
 	</div>
 </div>
 
-<div id="response" class="hide">
+<!-- <div id="response" class="hide">
         <textarea id="responseContainer" style="width:100%; height:150px"></textarea>
+</div> -->
+
 </div>
-
-
+</div>
+</div>
+</section>
 
 </body>
 </html>

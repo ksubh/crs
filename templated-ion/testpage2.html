@@ -38,23 +38,23 @@
 			<script>
 
 			$("#logoutbut").on( 'click', function () {
-			    $.ajax({
-			        type: 'post',
-			        url: 'userlogout.php',
-			        data: {
-			        	search0: "ty"
-			            
-			        },
-			        dataType: 'json',
-			        success: function( data ) {
-			        	if (data[0]=="You are now logged out"){
-			        		window.alert (data[0]);
-			        		window.open('firstlogintry.html','_self')
-			        	}
-			        	
-			        	return false;
+				$.ajax({
+					type: 'post',
+					url: 'userlogout.php',
+					data: {
+						search0: "ty"
+						
+					},
+					dataType: 'json',
+					success: function( data ) {
+						if (data[0]=="You are now logged out"){
+							window.alert (data[0]);
+							window.open('firstlogintry.html','_self')
+						}
+						
+						return false;
 					}
-			    });
+				});
 			});
 			</script>
 
@@ -77,25 +77,25 @@
 						var t3 = localStorage.getItem("t3");
 						var t4 = localStorage.getItem("t4");
 
-					    
-					    function searchfunctionsp() {
-					    $.ajax({
-					        type: 'post',
-					        async:false,
-					        url: 'left-sidebar-search.php',
-					        data: {
-					        	search0: t1,
-					            search1: t2,
-					            search2: t3,
-					            search3: t4
-					        },
-					        dataType: 'json',
-					        success: function( data ) {
-					            t = data;					            
-					            return false;
-					        }
+						
+						function searchfunctionsp() {
+						$.ajax({
+							type: 'post',
+							async:false,
+							url: 'left-sidebar-search.php',
+							data: {
+								search0: t1,
+								search1: t2,
+								search2: t3,
+								search3: t4
+							},
+							dataType: 'json',
+							success: function( data ) {
+								t = data;					            
+								return false;
+							}
 
-						    });
+							});
 						}
 
 						searchfunctionsp();
@@ -108,23 +108,23 @@
 
 						<SCRIPT>
 						$( window ).load(function() {
-						    $.ajax({
-						        type: 'post',
-						        url: 'userchecklogin.php',
-						        data: {
-						        	search0: "ty"
-						            
-						        },
-						        dataType: 'json',
-						        success: function( data ) {
-						        	if (data[1]=="nli"){
-						        		window.alert (data[0]);
-						        		window.open('firstlogintry.html','_self')
-						        	}
-						        							        	
-						        	return false;
+							$.ajax({
+								type: 'post',
+								url: 'userchecklogin.php',
+								data: {
+									search0: "ty"
+									
+								},
+								dataType: 'json',
+								success: function( data ) {
+									if (data[1]=="nli"){
+										window.alert (data[0]);
+										window.open('firstlogintry.html','_self')
+									}
+																		
+									return false;
 								}
-						    });
+							});
 						});
 
 							function getcolour(num)
@@ -150,8 +150,8 @@
 								{
 									var x = document.getElementsByClassName("boxor");
 									for (var i = 0; i < x.length; ++i) {
-									    var ele = x[i];  
-									    idr = ele.textContent;
+										var ele = x[i];  
+										idr = ele.textContent;
 										ele.style.backgroundColor=getcolour(idr);
 									}
 									
@@ -161,8 +161,8 @@
 								{
 									var x = document.getElementsByClassName("boxotr");
 									for (var i = 0; i < x.length; ++i) {
-									    var ele = x[i];  
-									    idr = ele.textContent;
+										var ele = x[i];  
+										idr = ele.textContent;
 										ele.style.backgroundColor=getcolour(idr);
 									}
 									
@@ -184,7 +184,7 @@
 							courseselected = t[anum];
 							localStorage.setItem("cs",JSON.stringify(t[anum]));
 							window.open('testpage3.html','');
-					        return false;
+							return false;
 						}
 
 
@@ -217,20 +217,20 @@
 							document.write('<input id = "submitprompt" type="submit" value="Prompt">');
 
 							$("#submitprompt").on( 'click', function () {
-							    $.ajax({
-							        type: 'post',
-							        url: 'course-addprompt.php',
-							        data: {
-							        	search0: $("#shortname").val(),
-							            search1: $("#instructor").val()
-							        },
-							        dataType: 'json',
-							        success: function( data ) {
-							            window.open('left-sidebar.html','_self');
-							            return false;
-							        }
+								$.ajax({
+									type: 'post',
+									url: 'course-addprompt.php',
+									data: {
+										search0: $("#shortname").val(),
+										search1: $("#instructor").val()
+									},
+									dataType: 'json',
+									success: function( data ) {
+										window.open('left-sidebar.html','_self');
+										return false;
+									}
 
-							    });
+								});
 							});
 
 							
@@ -307,6 +307,27 @@
 
 						<div class="3u">
 							<section class="boxns">
+								<script>
+									// function searchfunctionsp() {
+									// 	$.ajax({
+									// 		type: 'post',
+									// 		url: 'left-sidebar-search.php',
+									// 		data: {
+									// 			search0: t1,
+									// 			search1: t2,
+									// 			search2: t3,
+									// 			search3: t4
+									// 		},
+									// 		dataType: 'json',
+									// 		success: function( data ) {
+									// 			t = data;					            
+									// 			return false;
+									// 		}
+
+									// 	});
+									// }		
+								</script>
+
 								<h3>Additional Filters</h3>
 								<h4>Sort by: </h4>
 

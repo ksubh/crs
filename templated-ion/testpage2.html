@@ -77,7 +77,42 @@
 						var t3 = localStorage.getItem("t3");
 						var t4 = localStorage.getItem("t4");
 
-						
+						if (localStorage.getItem("sortby") === null) {
+						  var t5 = 'ov';
+						}
+						else{
+							var t5 = localStorage.getItem("sortby")
+						}
+
+						if (localStorage.getItem("sortbyorder") === null) {
+						  var t6 = 'DESC';
+						}
+						else{
+							var t6 = localStorage.getItem("sortbyorder")
+						}
+
+						if (localStorage.getItem("creditmin") === null) {
+						  var t7 = 0;
+						}
+						else{
+							var t7 = localStorage.getItem("creditmin")
+						}
+
+						if (localStorage.getItem("creditmax") === null) {
+						  var t8 = 25;
+						}
+						else{
+							var t8 = localStorage.getItem("creditmax")
+						}
+
+						if (localStorage.getItem("slot") === null) {
+						  var t9 = '';
+						}
+						else{
+							var t9 = localStorage.getItem("slot")
+						}
+
+
 						function searchfunctionsp() {
 						$.ajax({
 							type: 'post',
@@ -87,7 +122,12 @@
 								search0: t1,
 								search1: t2,
 								search2: t3,
-								search3: t4
+								search3: t4,
+								search4: t5,
+								search5: t6,
+								search6: t7,
+								search7: t8,
+								search8: t9
 							},
 							dataType: 'json',
 							success: function( data ) {
@@ -343,34 +383,61 @@
 								<br>
 
 								<form class="sortfilter" id = "f2">
-								<input type="radio" name="sex" value="Increasing" checked = "checked">Increasing<br>
-								<input type="radio" name="sex" value="Decreasing">Decreasing
+								<input type="radio" name="sex" value="ASC" id = "ASC" checked = "checked">Increasing<br>
+								<input type="radio" name="sex" value="DESC" id = "DESC">Decreasing
 								<br>
 								<br>
 								
 
 								<h4>Filter by: </h4>
-								<h5>Instructor</h5>
-								<input class="sortfilter" id = "f3" type="text" name="fname"><br>
 								
-								<h5>Department</h5>
-								<select class="sortfilter" id = "f4">
-								  <option value="volvo">CSL</option>
-								  <option value="volvo">ASL</option>
-								  <option value="saab">RDL</option>
-								  <option value="mercedes">EEL</option>
-								  <option value="audi">MEL</option>
-								</select>
-								<br>
 								<h5>Credits</h5>
 								<h6> &nbsp;  &nbsp; &nbsp; &nbsp; min &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; max &nbsp;  &nbsp; &nbsp; </h6>
-								<input class="sortfilter" id = "f5" type="text" name="mincredits">
-								<input class="sortfilter" id = "f6" type="text" name="maxcredits">
+								<input class="sortfilter" id = "f5" type="text" name="mincredits"></input>
+								<input class="sortfilter" id = "f6" type="text" name="maxcredits"></input>
 								<h5>&nbsp;</h5>
 								<h5>&nbsp;</h5>
 								<h5>Slot</h5>
 								<input class="sortfilter" id = "f7" type="text" name="fname"><br>
 						</form>
+						<script>
+							$("#f1").val(t5);
+							$("#"+t6).attr('checked', 'checked');
+							$("#f5").val(t7);
+							$("#f6").val(t8);
+							$("#f7").val(t9);
+
+
+							$('#f1').on('change', function() {
+								localStorage.setItem("sortby",$( "#f1" ).val());
+							  window.location.reload();
+							});
+
+							
+							$('input[name=sex]', '#f2').click( function() {
+							  //window.alert( $('input[name=sex]:checked', '#f2').val());
+							  localStorage.setItem("sortbyorder",$('input[name=sex]:checked', '#f2').val());
+							  window.location.reload();
+							});
+
+							$('#f5').on('change', function() {
+							  //window.alert($( "#f5" ).val());
+							  localStorage.setItem("creditmin",$( "#f5" ).val());
+							  window.location.reload();
+							});
+
+							$('#f6').on('change', function() {
+							  //window.alert($( "#f6" ).val());
+							  localStorage.setItem("creditmax",$( "#f6" ).val());
+							  window.location.reload();
+							});
+
+							$('#f7').on('change', function() {
+							  //window.alert($( "#f7" ).val());
+							  localStorage.setItem("slot",$( "#f7" ).val());
+							  window.location.reload();
+							});
+						</script>
 
 
 							</section>
